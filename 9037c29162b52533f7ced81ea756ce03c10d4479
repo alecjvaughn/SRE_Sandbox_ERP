@@ -1,0 +1,7 @@
+Task: Implement Health Server and Metric Server (TDD)
+Summary: Initialized the Python inventory-service. Created a basic HTTP server handling /healthz on port 8081 and integrated the prometheus_client to expose metrics on port 8000. Achieved 85% test coverage.
+Files changed:
+- inventory-service/.gitignore
+- inventory-service/app.py
+- inventory-service/requirements.txt
+- inventory-service/tests/test_health.py
