@@ -4,7 +4,7 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
 
 ## Phase 1: Go Order Service
 
-- [ ] Task: Implement HTTP Endpoints and Basic Validation (TDD)
+- [x] Task: Implement HTTP Endpoints and Basic Validation (TDD) [932256a]
     - [ ] Write unit tests for POST `/order` payload validation and GET `/healthz` endpoint
     - [ ] Implement order-service routing, request parsing, health checks, and mock response
     - [ ] Run test suite to verify tests pass
