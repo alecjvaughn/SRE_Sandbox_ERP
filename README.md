@@ -12,7 +12,9 @@ This repository contains the core transactional and event-driven foundation of t
 
 ## 🚀 Current Status
 
-- **Phase 1**: Implementing Go Order Service endpoints and TDD scaffolding (In Progress).
+- **Phase 1**: Implementing Go Order Service endpoints and TDD scaffolding (Completed).
+- **Phase 2**: Implementing Python Inventory Service consumer (Completed).
+- **Phase 3**: Integration and Docker Compose Local Sandbox (In Progress).
 
 ## 🛠 Prerequisites
 
@@ -26,10 +28,27 @@ This repository contains the core transactional and event-driven foundation of t
 .
 ├── PLAN_OVERVIEW.md    # High-level roadmap and architectural goals
 ├── conductor/          # Tracks, specification, and agent workflow plans
+├── inventory-service/  # Python Kafka consumer and metrics server
 ├── order-service/      # Go REST API for handling orders
 └── README.md           # This evolving project documentation
 ```
 
 ## 💻 Getting Started
 
-*(Instructions will be added here as the services are dockerized and the local sandbox is finalized.)*
+The local sandbox runs completely via Docker Compose, utilizing Apache Kafka in KRaft mode (no Zookeeper required).
+
+1. **Start the local sandbox:**
+   ```bash
+   docker compose up --build -d
+   ```
+
+2. **Verify the services:**
+   - Go Order Service API: `http://localhost:8080/order`
+   - Inventory Service Health Check: `http://localhost:8081/healthz`
+   - Order Service Metrics: `http://localhost:8080/metrics`
+   - Inventory Service Metrics: `http://localhost:8000/metrics`
+
+3. **Send a test order:**
+   ```bash
+   curl -X POST http://localhost:8080/order -d '{"order_id": "test-1", "item": "Widget", "qty": 5}'
+   ```

@@ -50,12 +50,11 @@ The goal of this track is to build the core transactional and event-driven found
   - `erp_stock_updates_total` (Counter): Cumulative count of stock changes processed.
 
 ### 2.3 Kafka broker
-- Local single-node Kafka running in Docker Compose on port `9092`.
+- Local single-node Apache Kafka utilizing KRaft mode running in Docker Compose on port `9092`.
 - Topic `orders` created with 2 partitions.
 
 ## 3. Local Orchestration (Docker Compose)
 A unified `docker-compose.yml` configures:
-1. `zookeeper`: For Kafka coordination.
-2. `kafka`: Kafka broker listening on localhost:9092.
-3. `order-service`: Runs Go web service listening on port `8080`.
-4. `inventory-service`: Runs Python consumer serving metrics on port `8000` and health on port `8081`.
+1. `kafka`: Apache Kafka broker listening on localhost:9092.
+2. `order-service`: Runs Go web service listening on port `8080`.
+3. `inventory-service`: Runs Python consumer serving metrics on port `8000` and health on port `8081`.

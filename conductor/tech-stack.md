@@ -20,7 +20,7 @@
 - **Load Balancing**: DigitalOcean Managed Load Balancer for public API traffic distribution.
 
 ## 4. Message Broker (Event-Driven Fabric)
-- **Confluent Kafka**: Single or multi-node broker deployment within Kubernetes (using `confluentinc/cp-server:7.6.0` or standard Bitnami Helm charts).
+- **Apache Kafka**: Single or multi-node broker deployment utilizing KRaft mode (no Zookeeper) within Kubernetes (using `apache/kafka` or standard Helm charts).
 
 ## 5. Chaos & Observability
 - **Chaos Injections**: `Chaos Mesh` Custom Resource Definitions (CRDs) targeting cluster workloads (pod kills, network partitions).
