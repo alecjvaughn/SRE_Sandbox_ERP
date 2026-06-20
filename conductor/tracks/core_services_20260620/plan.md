@@ -34,16 +34,16 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
     - [x] Verify docker build completes successfully
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Python Inventory Service' (Protocol in workflow.md) [7217850]
 
-## Phase 3: Integration and Docker Compose Local Sandbox
+## Phase 3: Integration and Docker Compose Local Sandbox [checkpoint: be8b12d]
 
 - [x] Task: Orchestrate Sandbox with Docker Compose [8b1555a]
     - [x] Write a `docker-compose.yml` defining services for order-service, inventory-service, zookeeper, and kafka
     - [x] Configure network links and ports between services
-- [~] Task: End-to-End Pipeline Verification
-    - [ ] Start the compose cluster and wait for brokers to initialize
-    - [ ] Send sample curl POST requests to order-service and inspect inventory consumer logs for stock mutations
-    - [ ] Verify Prometheus scrape targets and `/metrics` output
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration and Docker Compose Local Sandbox' (Protocol in workflow.md)
+- [x] Task: End-to-End Pipeline Verification [dbb75d3]
+    - [x] Start the compose cluster and wait for brokers to initialize
+    - [x] Send sample curl POST requests to order-service and inspect inventory consumer logs for stock mutations
+    - [x] Verify Prometheus scrape targets and `/metrics` output
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Integration and Docker Compose Local Sandbox' (Protocol in workflow.md) [be8b12d]
 
 ## Phase: Review Fixes
 - [x] Task: Apply review suggestions [f5789e0]
