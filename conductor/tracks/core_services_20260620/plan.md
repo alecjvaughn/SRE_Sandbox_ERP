@@ -44,3 +44,6 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
     - [ ] Send sample curl POST requests to order-service and inspect inventory consumer logs for stock mutations
     - [ ] Verify Prometheus scrape targets and `/metrics` output
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Integration and Docker Compose Local Sandbox' (Protocol in workflow.md)
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions [f5789e0]
