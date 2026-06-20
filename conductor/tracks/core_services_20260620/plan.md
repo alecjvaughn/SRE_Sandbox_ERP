@@ -12,11 +12,11 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
     - [x] Write unit tests for Kafka event serialization and transmission
     - [x] Implement Kafka producer setup using `franz-go` and integrate it into POST `/order` handler
     - [x] Run test suite to verify event production works
-- [ ] Task: Add Observability and Docker Containerization
-    - [ ] Write unit tests for `/metrics` endpoint and custom metrics incrementing
-    - [ ] Implement Prometheus metrics collection for `erp_orders_total`
-    - [ ] Write a multi-stage Dockerfile for `order-service`
-    - [ ] Run test suite and verify docker build completes successfully
+- [x] Task: Add Observability and Docker Containerization [1e5c6fb]
+    - [x] Write unit tests for `/metrics` endpoint and custom metrics incrementing
+    - [x] Implement Prometheus metrics collection for `erp_orders_total`
+    - [x] Write a multi-stage Dockerfile for `order-service`
+    - [x] Run test suite and verify docker build completes successfully
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Go Order Service' (Protocol in workflow.md)
 
 ## Phase 2: Python Inventory Service
