@@ -109,7 +109,10 @@ func (app *App) orderHandler(w http.ResponseWriter, r *http.Request) {
 
 	eventBytes, _ := json.Marshal(event)
 
-	err := app.Producer.Produce(r.Context(), "orders", []byte(req.OrderID), eventBytes)
+	ctx, cancel := context.WithTimeout(r.Context(), 2*time.Second)
+	defer cancel()
+
+	err := app.Producer.Produce(ctx, "orders", []byte(req.OrderID), eventBytes)
 	if err != nil {
 		log.Printf("Failed to produce event: %v", err)
 		sendError(w, "Internal Server Error", http.StatusInternalServerError)
@@ -141,6 +144,8 @@ func main() {
 
 	client, err := kgo.NewClient(
 		kgo.SeedBrokers(brokers...),
+		kgo.DialTimeout(2*time.Second),
+		kgo.ProduceRequestTimeout(2*time.Second),
 	)
 	if err != nil {
 		log.Fatalf("unable to create kafka client: %v", err)
