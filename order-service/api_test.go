@@ -201,3 +201,26 @@ func TestOrderEndpoint_InvalidJSON(t *testing.T) {
 		t.Errorf("expected 400 Bad Request for invalid json, got %v", status)
 	}
 }
+
+func TestMetricsEndpoint(t *testing.T) {
+	app := &App{Producer: &MockProducer{}}
+	
+	req, err := http.NewRequest("GET", "/metrics", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	rr := httptest.NewRecorder()
+	
+	// We will implement app.metricsHandler using promhttp.Handler()
+	handler := http.HandlerFunc(app.metricsHandler)
+	handler.ServeHTTP(rr, req)
+
+	if status := rr.Code; status != http.StatusOK {
+		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusOK)
+	}
+
+	if !bytes.Contains(rr.Body.Bytes(), []byte("erp_orders_total")) {
+		t.Errorf("expected metrics response to contain 'erp_orders_total'")
+	}
+}

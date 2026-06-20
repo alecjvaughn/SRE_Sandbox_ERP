@@ -8,7 +8,20 @@ import (
 	"os"
 	"time"
 
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promauto"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/twmb/franz-go/pkg/kgo"
+)
+
+var (
+	ordersTotal = promauto.NewCounterVec(
+		prometheus.CounterOpts{
+			Name: "erp_orders_total",
+			Help: "Counts total orders processed",
+		},
+		[]string{"status"},
+	)
 )
 
 type OrderRequest struct {
@@ -57,8 +70,13 @@ func (app *App) healthzHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("OK"))
 }
 
+func (app *App) metricsHandler(w http.ResponseWriter, r *http.Request) {
+	promhttp.Handler().ServeHTTP(w, r)
+}
+
 func (app *App) orderHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
+		ordersTotal.WithLabelValues("failed").Inc()
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		return
 	}
@@ -98,6 +116,8 @@ func (app *App) orderHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	ordersTotal.WithLabelValues("success").Inc()
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusAccepted)
 	json.NewEncoder(w).Encode(OrderResponse{
@@ -107,6 +127,7 @@ func (app *App) orderHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func sendError(w http.ResponseWriter, msg string, code int) {
+	ordersTotal.WithLabelValues("failed").Inc()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
 	json.NewEncoder(w).Encode(OrderResponse{Error: msg})
@@ -132,6 +153,7 @@ func main() {
 
 	http.HandleFunc("/healthz", app.healthzHandler)
 	http.HandleFunc("/order", app.orderHandler)
+	http.HandleFunc("/metrics", app.metricsHandler)
 	
 	log.Println("Starting server on :8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
