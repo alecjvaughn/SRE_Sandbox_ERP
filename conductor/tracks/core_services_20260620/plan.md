@@ -19,7 +19,7 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
     - [x] Run test suite and verify docker build completes successfully
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Go Order Service' (Protocol in workflow.md) [a863b8d]
 
-## Phase 2: Python Inventory Service
+## Phase 2: Python Inventory Service [checkpoint: 7217850]
 
 - [x] Task: Implement Health Server and Metric Server (TDD) [9037c29]
     - [x] Write unit tests for GET `/healthz` check on port 8081
@@ -32,7 +32,7 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
 - [x] Task: Python Containerization [4a9d51c]
     - [x] Write a Dockerfile for `inventory-service`
     - [x] Verify docker build completes successfully
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Python Inventory Service' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Python Inventory Service' (Protocol in workflow.md) [7217850]
 
 ## Phase 3: Integration and Docker Compose Local Sandbox
 
