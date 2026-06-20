@@ -1,0 +1,8 @@
+{
+  "track_id": "core_services_20260620",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-06-20T18:33:50Z",
+  "updated_at": "2026-06-20T18:33:50Z",
+  "description": "Implement Go Order and Python Inventory services with Kafka event bus"
+}
