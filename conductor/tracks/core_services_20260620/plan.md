@@ -8,7 +8,7 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
     - [ ] Write unit tests for POST `/order` payload validation and GET `/healthz` endpoint
     - [ ] Implement order-service routing, request parsing, health checks, and mock response
     - [ ] Run test suite to verify tests pass
-- [ ] Task: Implement Kafka Producer (TDD)
+- [x] Task: Implement Kafka Producer (TDD) [01c5b13]
     - [ ] Write unit tests for Kafka event serialization and transmission
     - [ ] Implement Kafka producer setup using `franz-go` and integrate it into POST `/order` handler
     - [ ] Run test suite to verify event production works
