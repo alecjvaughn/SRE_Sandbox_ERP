@@ -19,17 +19,19 @@ def consume_orders(broker_url=None, retry=True):
     if broker_url is None:
         broker_url = os.getenv("KAFKA_BROKERS", "kafka:9092")
         
+    consumer = None
     while True:
         try:
-            consumer = KafkaConsumer(
-                'orders',
-                bootstrap_servers=[broker_url],
-                group_id='inventory-group',
-                auto_offset_reset='earliest',
-                enable_auto_commit=True,
-                consumer_timeout_ms=1000 # To allow safe testing without blocking forever
-            )
-            logger.info(f"Connected to Kafka broker at {broker_url}. Listening for 'orders'...")
+            if not consumer:
+                consumer = KafkaConsumer(
+                    'orders',
+                    bootstrap_servers=[broker_url],
+                    group_id='inventory-group',
+                    auto_offset_reset='earliest',
+                    enable_auto_commit=True,
+                    consumer_timeout_ms=1000 # To allow safe testing without blocking forever
+                )
+                logger.info(f"Connected to Kafka broker at {broker_url}. Listening for 'orders'...")
 
             for message in consumer:
                 try:
