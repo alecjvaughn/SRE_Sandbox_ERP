@@ -1,0 +1,7 @@
+Task: Implement HTTP Endpoints and Basic Validation (TDD)
+Changes:
+- Initialized order-service Go module.
+- Added api_test.go with unit tests.
+- Implemented main.go with /healthz and /order endpoints.
+- Added an evolving README.md.
+Reason: Established foundational REST endpoints for the Go order service per Phase 1 requirements.
