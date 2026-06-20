@@ -1,0 +1,7 @@
+Task: Orchestrate Sandbox with Docker Compose
+Summary: Created a unified docker-compose.yml file configuring Apache Kafka in KRaft mode, eliminating the need for Zookeeper. Also updated tech-stack.md, the track spec, and README.md.
+Files changed:
+- docker-compose.yml
+- README.md
+- conductor/tech-stack.md
+- conductor/tracks/core_services_20260620/spec.md
