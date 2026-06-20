@@ -39,7 +39,7 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
 - [x] Task: Orchestrate Sandbox with Docker Compose [8b1555a]
     - [x] Write a `docker-compose.yml` defining services for order-service, inventory-service, zookeeper, and kafka
     - [x] Configure network links and ports between services
-- [ ] Task: End-to-End Pipeline Verification
+- [~] Task: End-to-End Pipeline Verification
     - [ ] Start the compose cluster and wait for brokers to initialize
     - [ ] Send sample curl POST requests to order-service and inspect inventory consumer logs for stock mutations
     - [ ] Verify Prometheus scrape targets and `/metrics` output
