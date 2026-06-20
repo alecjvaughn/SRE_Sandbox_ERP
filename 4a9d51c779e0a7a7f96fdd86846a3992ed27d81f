@@ -1,0 +1,4 @@
+Task: Python Containerization
+Summary: Wrote a multi-stage Dockerfile for the inventory-service using the python:3.11-slim-bookworm image. The builder stage installs dependencies from requirements.txt, and the final stage copies them and exposes the application ports (8000 for metrics, 8081 for health).
+Files changed:
+- inventory-service/Dockerfile
