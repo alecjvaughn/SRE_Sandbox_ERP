@@ -25,10 +25,10 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
     - [x] Write unit tests for GET `/healthz` check on port 8081
     - [x] Implement HTTP server routing for health check and start Prometheus server on port 8000
     - [x] Run test suite to verify server behavior
-- [ ] Task: Implement Kafka Consumer and Event Handlers (TDD)
-    - [ ] Write unit/integration tests for Kafka message consuming and stock decrement logs
-    - [ ] Implement consumer thread using `kafka-python` or `confluent-kafka` and event parsing logic
-    - [ ] Run test suite to verify consumer reads and updates metric counters
+- [x] Task: Implement Kafka Consumer and Event Handlers (TDD) [97dbb53]
+    - [x] Write unit/integration tests for Kafka message consuming and stock decrement logs
+    - [x] Implement consumer thread using `kafka-python` or `confluent-kafka` and event parsing logic
+    - [x] Run test suite to verify consumer reads and updates metric counters
 - [ ] Task: Python Containerization
     - [ ] Write a Dockerfile for `inventory-service`
     - [ ] Verify docker build completes successfully
