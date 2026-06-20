@@ -36,9 +36,9 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
 
 ## Phase 3: Integration and Docker Compose Local Sandbox
 
-- [ ] Task: Orchestrate Sandbox with Docker Compose
-    - [ ] Write a `docker-compose.yml` defining services for order-service, inventory-service, zookeeper, and kafka
-    - [ ] Configure network links and ports between services
+- [x] Task: Orchestrate Sandbox with Docker Compose [8b1555a]
+    - [x] Write a `docker-compose.yml` defining services for order-service, inventory-service, zookeeper, and kafka
+    - [x] Configure network links and ports between services
 - [ ] Task: End-to-End Pipeline Verification
     - [ ] Start the compose cluster and wait for brokers to initialize
     - [ ] Send sample curl POST requests to order-service and inspect inventory consumer logs for stock mutations
