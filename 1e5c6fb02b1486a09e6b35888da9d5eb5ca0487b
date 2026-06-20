@@ -1,0 +1,8 @@
+Task: Add Observability and Docker Containerization
+Summary: Added Prometheus /metrics endpoint to the Go order-service for monitoring order processing. Exposed erp_orders_total counter. Configured multi-stage Dockerfile for containerizing the application using Go 1.25.
+Files changed:
+- order-service/main.go
+- order-service/api_test.go
+- order-service/Dockerfile
+- order-service/go.mod
+- order-service/go.sum
