@@ -1,0 +1,8 @@
+Verification Report: Phase 2: Python Inventory Service
+Automated Test Command: cd inventory-service && source venv/bin/activate && PYTHONPATH=. pytest --cov=. --cov-report=term-missing
+Manual Verification Steps:
+1. Build and run the Docker container (docker build & docker run).
+2. Verify Health Endpoint (curl http://localhost:8081/healthz) -> OK.
+3. Verify Metrics Endpoint (curl http://localhost:8000/metrics) -> Prometheus metrics for inventory_events_total.
+4. Verify Consumer Resiliency (Ensure consumer loop logs connection timeout and retries without crashing).
+User Confirmation: Yes
