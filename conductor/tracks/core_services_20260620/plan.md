@@ -29,9 +29,9 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
     - [x] Write unit/integration tests for Kafka message consuming and stock decrement logs
     - [x] Implement consumer thread using `kafka-python` or `confluent-kafka` and event parsing logic
     - [x] Run test suite to verify consumer reads and updates metric counters
-- [ ] Task: Python Containerization
-    - [ ] Write a Dockerfile for `inventory-service`
-    - [ ] Verify docker build completes successfully
+- [x] Task: Python Containerization [4a9d51c]
+    - [x] Write a Dockerfile for `inventory-service`
+    - [x] Verify docker build completes successfully
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Python Inventory Service' (Protocol in workflow.md)
 
 ## Phase 3: Integration and Docker Compose Local Sandbox
