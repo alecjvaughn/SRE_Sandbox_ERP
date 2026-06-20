@@ -1,0 +1,7 @@
+Task: Implement Kafka Producer (TDD)
+Changes:
+- Added franz-go dependency for Kafka.
+- Refactored orderHandler to use an EventProducer interface.
+- Created MockProducer for unit testing.
+- Added tests verifying Kafka topics, keys, and serialized values.
+Reason: Ensures that validated incoming orders are successfully emitted to the event bus.
