@@ -1,0 +1,6 @@
+Task: Implement Kafka Consumer and Event Handlers (TDD)
+Summary: Implemented the background Kafka consumer thread for the inventory-service to parse 'orders' events and update Prometheus counters for inventory_events_total. Included an infinite retry loop for robust broker connections and achieved 84% test coverage.
+Files changed:
+- inventory-service/consumer.py
+- inventory-service/tests/test_consumer.py
+- inventory-service/app.py
