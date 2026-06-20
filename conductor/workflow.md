@@ -62,9 +62,14 @@ All tasks follow a strict lifecycle:
     - **Step 10.1: Update Plan:** Read `plan.md`, find the line for the completed task, update its status from `[~]` to `[x]`, and append the first 7 characters of the *just-completed commit's* commit hash.
     - **Step 10.2: Write Plan:** Write the updated content back to `plan.md`.
 
-11. **Commit Plan Update:**
+11. **Commit Plan Update and Push:**
     - **Action:** Stage the modified `plan.md` file.
     - **Action:** Commit this change with a descriptive message (e.g., `conductor(plan): Mark task 'Create user model' as complete`).
+    - **Action:** Push the changes and notes to the remote repository.
+      ```bash
+      git push origin HEAD
+      git push origin 'refs/notes/*'
+      ```
 
 ### Phase Completion Verification and Checkpointing Protocol
 
@@ -128,9 +133,14 @@ All tasks follow a strict lifecycle:
     -   **Step 8.2: Update Plan:** Read `plan.md`, find the heading for the completed phase, and append the first 7 characters of the commit hash in the format `[checkpoint: <sha>]`.
     -   **Step 8.3: Write Plan:** Write the updated content back to `plan.md`.
 
-9. **Commit Plan Update:**
+9. **Commit Plan Update and Push:**
     - **Action:** Stage the modified `plan.md` file.
     - **Action:** Commit this change with a descriptive message following the format `conductor(plan): Mark phase '<PHASE NAME>' as complete`.
+    - **Action:** Push the checkpoint and notes to the remote repository.
+      ```bash
+      git push origin HEAD
+      git push origin 'refs/notes/*'
+      ```
 
 10.  **Announce Completion:** Inform the user that the phase is complete and the checkpoint has been created, with the detailed verification report attached as a git note.
 
@@ -273,6 +283,7 @@ A task is complete when:
 7. Implementation notes added to `plan.md`
 8. Changes committed with proper message
 9. Git note with task summary attached to the commit
+10. Commits and git notes pushed to remote repository
 
 ## Emergency Procedures
 
