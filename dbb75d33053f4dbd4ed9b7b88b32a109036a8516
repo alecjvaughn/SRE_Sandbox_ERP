@@ -1,0 +1,5 @@
+Task: End-to-End Pipeline Verification
+Summary: Started the cluster via Docker Compose and ran E2E testing. Order service accepted the curl payload and successfully produced it to Kafka. The inventory service then successfully consumed it and logged the decremented stock, proving that the full system is completely connected and healthy.
+Files changed:
+- inventory-service/consumer.py
+- inventory-service/requirements.txt
