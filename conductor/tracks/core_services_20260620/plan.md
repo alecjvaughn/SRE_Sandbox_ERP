@@ -21,10 +21,10 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
 
 ## Phase 2: Python Inventory Service
 
-- [ ] Task: Implement Health Server and Metric Server (TDD)
-    - [ ] Write unit tests for GET `/healthz` check on port 8081
-    - [ ] Implement HTTP server routing for health check and start Prometheus server on port 8000
-    - [ ] Run test suite to verify server behavior
+- [x] Task: Implement Health Server and Metric Server (TDD) [9037c29]
+    - [x] Write unit tests for GET `/healthz` check on port 8081
+    - [x] Implement HTTP server routing for health check and start Prometheus server on port 8000
+    - [x] Run test suite to verify server behavior
 - [ ] Task: Implement Kafka Consumer and Event Handlers (TDD)
     - [ ] Write unit/integration tests for Kafka message consuming and stock decrement logs
     - [ ] Implement consumer thread using `kafka-python` or `confluent-kafka` and event parsing logic
