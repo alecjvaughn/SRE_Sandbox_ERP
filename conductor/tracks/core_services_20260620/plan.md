@@ -2,7 +2,7 @@
 
 This plan outlines the step-by-step TDD tasks to build the core services and verify their event-driven integration.
 
-## Phase 1: Go Order Service
+## Phase 1: Go Order Service [checkpoint: a863b8d]
 
 - [x] Task: Implement HTTP Endpoints and Basic Validation (TDD) [932256a]
     - [x] Write unit tests for POST `/order` payload validation and GET `/healthz` endpoint
@@ -17,7 +17,7 @@ This plan outlines the step-by-step TDD tasks to build the core services and ver
     - [x] Implement Prometheus metrics collection for `erp_orders_total`
     - [x] Write a multi-stage Dockerfile for `order-service`
     - [x] Run test suite and verify docker build completes successfully
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Go Order Service' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Go Order Service' (Protocol in workflow.md) [a863b8d]
 
 ## Phase 2: Python Inventory Service
 
