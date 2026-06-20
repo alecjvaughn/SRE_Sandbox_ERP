@@ -31,5 +31,13 @@ def start_metrics_server(port=8000):
     print(f"Metrics server started on port {port}")
 
 if __name__ == "__main__":
+    import threading
+    from consumer import consume_orders
+    
     start_metrics_server(8000)
+    
+    # Start consumer in a background thread
+    consumer_thread = threading.Thread(target=consume_orders, daemon=True)
+    consumer_thread.start()
+    
     run_health_server(8081)
