@@ -1,6 +1,9 @@
 import http.server
 import socketserver
 from prometheus_client import start_http_server
+import logging
+
+logger = logging.getLogger(__name__)
 
 class HealthCheckHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -23,12 +26,12 @@ class ReusableTCPServer(socketserver.TCPServer):
 def run_health_server(port=8081):
     handler = HealthCheckHandler
     with ReusableTCPServer(("", port), handler) as httpd:
-        print(f"Health server serving at port {port}")
+        logger.info(f"Health server serving at port {port}")
         httpd.serve_forever()
 
 def start_metrics_server(port=8000):
     start_http_server(port)
-    print(f"Metrics server started on port {port}")
+    logger.info(f"Metrics server started on port {port}")
 
 if __name__ == "__main__":
     import threading

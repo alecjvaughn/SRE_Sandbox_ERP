@@ -1,10 +1,25 @@
 import json
 import logging
+import os
+import time
+
 from kafka import KafkaConsumer
 from prometheus_client import Counter
-import os
 
-logging.basicConfig(level=logging.INFO)
+class JsonFormatter(logging.Formatter):
+    def format(self, record):
+        log_obj = {
+            "level": record.levelname,
+            "timestamp": self.formatTime(record, self.datefmt),
+            "message": record.getMessage(),
+            "caller": f"{record.module}:{record.funcName}"
+        }
+        return json.dumps(log_obj)
+
+handler = logging.StreamHandler()
+handler.setFormatter(JsonFormatter())
+logging.basicConfig(level=logging.INFO, handlers=[handler])
+
 logger = logging.getLogger(__name__)
 
 inventory_events_total = Counter(
@@ -12,8 +27,6 @@ inventory_events_total = Counter(
     'Total number of inventory events processed',
     ['status']
 )
-
-import time
 
 def consume_orders(broker_url=None, retry=True):
     if broker_url is None:

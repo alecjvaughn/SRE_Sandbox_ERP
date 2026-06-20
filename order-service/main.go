@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"log"
+	"log/slog"
 	"net/http"
 	"os"
 	"time"
@@ -114,7 +114,7 @@ func (app *App) orderHandler(w http.ResponseWriter, r *http.Request) {
 
 	err := app.Producer.Produce(ctx, "orders", []byte(req.OrderID), eventBytes)
 	if err != nil {
-		log.Printf("Failed to produce event: %v", err)
+		slog.Error("Failed to produce event", "error", err)
 		sendError(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
@@ -148,7 +148,8 @@ func main() {
 		kgo.ProduceRequestTimeout(2*time.Second),
 	)
 	if err != nil {
-		log.Fatalf("unable to create kafka client: %v", err)
+		slog.Error("unable to create kafka client", "error", err)
+		os.Exit(1)
 	}
 	defer client.Close()
 
@@ -160,8 +161,12 @@ func main() {
 	http.HandleFunc("/order", app.orderHandler)
 	http.HandleFunc("/metrics", app.metricsHandler)
 	
-	log.Println("Starting server on :8080")
+	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+	slog.SetDefault(logger)
+
+	slog.Info("Starting server on :8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
-		log.Fatalf("server failed: %v", err)
+		slog.Error("server failed", "error", err)
+		os.Exit(1)
 	}
 }
