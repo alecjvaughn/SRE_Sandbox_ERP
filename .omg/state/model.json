@@ -1,0 +1,11 @@
+{
+  "strategy": "custom",
+  "lane_models": {
+    "planning": "gemini-3.1-pro-preview",
+    "execution": "auto",
+    "quick_edit": "gemini-3.1-flash-lite-preview",
+    "review_verify": "auto"
+  },
+  "updated_at": "2026-06-20T19:47:19Z",
+  "source": "oma:model"
+}
