@@ -1,0 +1,8 @@
+Verification Report: Phase 3: Integration and Docker Compose Local Sandbox
+Manual Verification Steps Executed:
+1. Orchestrated the unified Docker Compose using Apache Kafka KRaft.
+2. Started the sandbox cluster using 'docker compose up'.
+3. Hit the order API with a sample payload.
+4. Confirmed the consumer successfully decreased stock.
+5. Checked Prometheus metrics output and verified counters incremented.
+User confirmation obtained successfully.
