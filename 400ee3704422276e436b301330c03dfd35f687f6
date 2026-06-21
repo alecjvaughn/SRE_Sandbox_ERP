@@ -1,0 +1,1 @@
+Task: Define CPU/Memory Stress Experiment. Created chaos/resource-stress.yaml to test OOM recovery and CPU limits.
