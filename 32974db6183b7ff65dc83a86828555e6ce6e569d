@@ -1,0 +1,1 @@
+Phase: Dockerization. Manual Verification: 1. docker compose up --build -d, 2. curl /healthz, 3. Send order via POST, 4. Verify docker logs. Confirmed by user: Yes.
