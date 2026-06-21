@@ -62,6 +62,12 @@ Status: `Completed`
 - [x] Implement replica anti-affinity rules for high availability
 - [x] Configure DigitalOcean Load Balancer and Ingress rules
 
+### Track: Observability Stack
+Status: `Completed`
+- [x] Deploy `kube-prometheus-stack` (Prometheus Operator & Grafana)
+- [x] Configure ServiceMonitors to scrape application metrics
+- [x] Create Grafana dashboards for throughput, resource usage, and application health
+
 ## Planned & Future Tracks
 
 ### Track: Infrastructure as Code (IaC) Provisioning
@@ -69,12 +75,6 @@ Status: `Planned`
 - Write Terraform scripts to provision DigitalOcean Kubernetes (DOKS)
 - Configure DigitalOcean Container Registry (DOCR) and Load Balancer
 - Automate secure access and cluster role bindings
-### Track: Observability Stack
-Status: `Planned`
-- Deploy `kube-prometheus-stack` (Prometheus Operator & Grafana)
-- Configure ServiceMonitors to scrape application metrics
-- Create Grafana dashboards for throughput, resource usage, and application health
-
 ### Track: Chaos Engineering Validation
 Status: `Planned`
 - Deploy Chaos Mesh to the Kubernetes cluster
