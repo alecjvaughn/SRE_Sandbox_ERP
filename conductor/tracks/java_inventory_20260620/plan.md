@@ -18,7 +18,7 @@
     - [x] Expose `/metrics` endpoint using Micrometer Prometheus extension
     - [x] Increment `inventory_events_total` counter upon processing orders
     - [x] Increment `inventory_errors_total` on parsing/processing failures
-- [ ] Task: Conductor - User Manual Verification 'Application Logic Implementation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Application Logic Implementation' (Protocol in workflow.md) [checkpoint: 2590631]
 
 ## Phase: Dockerization and Infrastructure Updates
 - [ ] Task: Write multi-stage Dockerfile for Quarkus Maven build
