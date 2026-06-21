@@ -7,9 +7,9 @@
 - [x] Task: Conductor - User Manual Verification 'Project Scaffolding' (Protocol in workflow.md) [checkpoint: 110f569]
 
 ## Phase: Application Logic Implementation
-- [ ] Task: Implement Health Check Endpoint
-    - [ ] Write tests for `/healthz` endpoint
-    - [ ] Implement REST resource returning 200 OK
+- [x] Task: Implement Health Check Endpoint [8025de4]
+    - [x] Write tests for `/healthz` endpoint
+    - [x] Implement REST resource returning 200 OK
 - [ ] Task: Implement Kafka Consumer
     - [ ] Create Kafka consumer service using Native Apache Kafka Client
     - [ ] Parse incoming JSON order payloads
