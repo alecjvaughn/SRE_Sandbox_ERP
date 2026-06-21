@@ -1,0 +1,1 @@
+Updated docker-compose to map host port 8081 to container port 8080 for the new Quarkus service
