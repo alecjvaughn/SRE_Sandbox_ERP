@@ -7,18 +7,18 @@
     - [x] Verify Chaos Mesh pods are running
 - [x] Task: Conductor - User Manual Verification 'Setup Chaos Mesh' (Protocol in workflow.md) 049e84f
 
-## Phase: Chaos Experiments Implementation
-- [ ] Task: Define Pod Eviction Experiment
-    - [ ] Create `PodChaos` manifest for randomly terminating `order-service` pods
-    - [ ] Create `PodChaos` manifest for randomly terminating `inventory-service` pods
-- [ ] Task: Define Network Latency Experiment
-    - [ ] Create `NetworkChaos` manifest to inject latency between services and Kafka
-- [ ] Task: Define CPU/Memory Stress Experiment
-    - [ ] Create `StressChaos` manifest to simulate resource exhaustion on application pods
-- [ ] Task: Conductor - User Manual Verification 'Chaos Experiments Implementation' (Protocol in workflow.md)
+## Phase: Chaos Experiments Implementation [checkpoint: 8e9573e]
+- [x] Task: Define Pod Eviction Experiment 5a0d882
+    - [x] Create `PodChaos` manifest for randomly terminating `order-service` pods
+    - [x] Create `PodChaos` manifest for randomly terminating `inventory-service` pods
+- [x] Task: Define Network Latency Experiment a4f5f6f
+    - [x] Create `NetworkChaos` manifest to inject latency between services and Kafka
+- [x] Task: Define CPU/Memory Stress Experiment 400ee37
+    - [x] Create `StressChaos` manifest to simulate resource exhaustion on application pods
+- [x] Task: Conductor - User Manual Verification 'Chaos Experiments Implementation' (Protocol in workflow.md) 8e9573e
 
 ## Phase: Validation and Observability
-- [ ] Task: Execute and Monitor Local Experiments
+- [~] Task: Execute and Monitor Local Experiments
     - [ ] Apply chaos manifests to the minikube cluster
     - [ ] Monitor `/healthz` endpoints for recovery
     - [ ] Validate system recovery via Grafana/Prometheus dashboards
