@@ -1,0 +1,1 @@
+Phase: Application Logic Implementation. Manual Verification: 1. docker compose down/up kafka, 2. mvnw quarkus:dev, 3. curl /metrics, 4. produce test message and verify JSON log. Confirmed by user: Yes.
