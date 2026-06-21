@@ -1,9 +1,9 @@
 # Implementation Plan: Migrate Inventory Service to Java (Quarkus)
 
 ## Phase: Project Scaffolding
-- [ ] Task: Initialize Quarkus Maven project for `inventory-service`
-    - [ ] Generate project structure with required extensions (RESTEasy, Micrometer/Prometheus, Kafka Client)
-    - [ ] Remove old Python files (`app.py`, `consumer.py`, `requirements.txt`)
+- [x] Task: Initialize Quarkus Maven project for `inventory-service` [e10148f]
+    - [x] Generate project structure with required extensions (RESTEasy, Micrometer/Prometheus, Kafka Client)
+    - [x] Remove old Python files (`app.py`, `consumer.py`, `requirements.txt`)
 - [ ] Task: Conductor - User Manual Verification 'Project Scaffolding' (Protocol in workflow.md)
 
 ## Phase: Application Logic Implementation
