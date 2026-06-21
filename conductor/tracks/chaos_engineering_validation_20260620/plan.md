@@ -1,11 +1,11 @@
 # Implementation Plan: Chaos Engineering Validation
 
-## Phase: Setup Chaos Mesh
-- [ ] Task: Deploy Chaos Mesh to Local Minikube
-    - [ ] Add Chaos Mesh Helm repository
-    - [ ] Install Chaos Mesh via Helm
-    - [ ] Verify Chaos Mesh pods are running
-- [ ] Task: Conductor - User Manual Verification 'Setup Chaos Mesh' (Protocol in workflow.md)
+## Phase: Setup Chaos Mesh [checkpoint: 049e84f]
+- [x] Task: Deploy Chaos Mesh to Local Minikube 8f14a91
+    - [x] Add Chaos Mesh Helm repository
+    - [x] Install Chaos Mesh via Helm
+    - [x] Verify Chaos Mesh pods are running
+- [x] Task: Conductor - User Manual Verification 'Setup Chaos Mesh' (Protocol in workflow.md) 049e84f
 
 ## Phase: Chaos Experiments Implementation
 - [ ] Task: Define Pod Eviction Experiment

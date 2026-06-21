@@ -12,10 +12,10 @@ This repository contains the core transactional and event-driven foundation of t
 
 ## 🚀 Current Status
 
-- **Phase 1**: Implementing Go Order Service endpoints and TDD scaffolding (Completed).
-- **Phase 2**: Implementing Python Inventory Service consumer (Completed).
-- **Phase 3**: Integration and Docker Compose Local Sandbox (Completed).
-- **Phase 4**: Migrating Inventory Service to Java/Quarkus (Completed).
+- **Phase 1-4**: Core Microservices & Local Sandbox (Completed).
+- **Phase 5**: Kubernetes Active-Active Infrastructure (Completed).
+- **Phase 6**: Observability Stack (Completed).
+- **Phase 7**: Chaos Engineering - Setup Chaos Mesh (Completed).
 
 ## 🛠 Prerequisites
 
