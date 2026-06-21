@@ -56,7 +56,26 @@ Status: `Completed`
 - [x] Phase 2: Application Logic Implementation
 - [x] Phase 3: Dockerization and Infrastructure Updates
 
-## Future / Optional Tracks
+## Planned & Future Tracks
+
+### Track: Kubernetes Active-Active Infrastructure
+Status: `Planned`
+- Define Kubernetes Deployment manifests for `order-service` and `inventory-service`
+- Implement replica anti-affinity rules for high availability
+- Configure DigitalOcean Load Balancer and Ingress rules
+
+### Track: Observability Stack
+Status: `Planned`
+- Deploy `kube-prometheus-stack` (Prometheus Operator & Grafana)
+- Configure ServiceMonitors to scrape application metrics
+- Create Grafana dashboards for throughput, resource usage, and application health
+
+### Track: Chaos Engineering Validation
+Status: `Planned`
+- Deploy Chaos Mesh to the Kubernetes cluster
+- Define and execute chaos experiments (e.g., pod eviction, network latency)
+- Validate self-healing and alerting mechanisms under stress
+
 ### Track: ArgoCD GitOps Management
 Status: `Planned (Optional)`
 - Restructure project to separate application source from deployment manifests
