@@ -18,6 +18,7 @@
 - **Local Dev Sandbox**: `Docker Compose` or `Kind (Kubernetes in Docker)` for zero-cost rapid local prototyping.
 - **Cloud Cluster**: DigitalOcean Kubernetes (DOKS) with 3x worker nodes (2 vCPU, 4GB RAM) for production-grade SRE testing.
 - **Load Balancing**: DigitalOcean Managed Load Balancer for public API traffic distribution.
+- **Configuration Management**: `Helm` for managing Kubernetes manifests, applying soft/hard anti-affinity rules, and defining workload resource constraints.
 
 ## 4. Message Broker (Event-Driven Fabric)
 - **Apache Kafka**: Single or multi-node broker deployment utilizing KRaft mode (no Zookeeper) within Kubernetes (using `apache/kafka` or standard Helm charts).
