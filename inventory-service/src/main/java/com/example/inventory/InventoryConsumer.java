@@ -2,6 +2,7 @@ package com.example.inventory;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.micrometer.core.instrument.MeterRegistry;
 import io.quarkus.runtime.Startup;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
@@ -33,6 +34,9 @@ public class InventoryConsumer {
 
     @Inject
     ObjectMapper objectMapper;
+
+    @Inject
+    MeterRegistry meterRegistry;
 
     private KafkaConsumer<String, String> consumer;
     private volatile boolean running = true;
@@ -75,7 +79,9 @@ public class InventoryConsumer {
             JsonNode order = objectMapper.readTree(record.value());
             String item = order.has("item") ? order.get("item").asText() : "Unknown";
             LOG.infov("Processing stock reduction for item: {0}", item);
+            meterRegistry.counter("inventory_events_total", "type", "order_received").increment();
         } catch (Exception e) {
+            meterRegistry.counter("inventory_errors_total", "type", "payload_parse_error").increment();
             LOG.error("Failed to parse order payload", e);
         }
     }
