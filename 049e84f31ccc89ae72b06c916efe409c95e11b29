@@ -1,0 +1,1 @@
+Verification Report: Setup Chaos Mesh. Automated programmatic check via kubectl wait successfully verified all pods are ready.
