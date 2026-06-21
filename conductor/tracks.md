@@ -4,5 +4,3 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [x] **Track: Migrate Inventory Service to Java (Quarkus)**
-  *Link: [./tracks/java_inventory_20260620/](./tracks/java_inventory_20260620/)*
