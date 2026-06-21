@@ -9,15 +9,15 @@
 - [x] Task: Conductor - User Manual Verification 'Helm Chart Scaffolding' (Protocol in workflow.md)
 
 ## Phase: Application Manifest Definitions
-- [ ] Task: Implement `order-service` Helm templates
-    - [ ] Define Deployment with Soft Anti-Affinity rules
-    - [ ] Define CPU/Memory requests and limits
-    - [ ] Define Service, liveness, and readiness probes (`/healthz`)
-- [ ] Task: Implement `inventory-service` Helm templates
-    - [ ] Define Deployment with Soft Anti-Affinity rules
-    - [ ] Define CPU/Memory requests and limits
-    - [ ] Define liveness and readiness probes (`/healthz`)
-- [ ] Task: Conductor - User Manual Verification 'Application Manifest Definitions' (Protocol in workflow.md)
+- [x] Task: Implement `order-service` Helm templates
+    - [x] Define Deployment with Soft Anti-Affinity rules
+    - [x] Define CPU/Memory requests and limits
+    - [x] Define Service, liveness, and readiness probes (`/healthz`)
+- [x] Task: Implement `inventory-service` Helm templates
+    - [x] Define Deployment with Soft Anti-Affinity rules
+    - [x] Define CPU/Memory requests and limits
+    - [x] Define liveness and readiness probes (`/healthz`)
+- [x] Task: Conductor - User Manual Verification 'Application Manifest Definitions' (Protocol in workflow.md)
 
 ## Phase: Ingress and State Configuration
 - [ ] Task: Configure Ingress and Load Balancer
