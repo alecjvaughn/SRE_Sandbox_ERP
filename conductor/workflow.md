@@ -138,16 +138,19 @@ All tasks follow a strict lifecycle:
     -   **Step 8.2: Update Plan:** Read `plan.md`, find the heading for the completed phase, and append the first 7 characters of the commit hash in the format `[checkpoint: <sha>]`.
     -   **Step 8.3: Write Plan:** Write the updated content back to `plan.md`.
 
-9. **Commit Plan Update and Push:**
-    - **Action:** Stage the modified `plan.md` file.
-    - **Action:** Commit this change with a descriptive message following the format `conductor(plan): Mark phase '<PHASE NAME>' as complete`.
-    - **Action:** Push the checkpoint and notes to the remote repository.
+9.  **Sync Project README:**
+    -   **Action:** Review the changes made in the completed phase and update the main project `README.md` to reflect the newly completed features, updated setup instructions, or architectural changes. This ensures the README remains a living document perfectly in sync with the project state.
+
+10. **Commit Artifact Updates and Push:**
+    - **Action:** Stage the modified `plan.md` and `README.md` files.
+    - **Action:** Commit this change with a descriptive message following the format `conductor(plan): Mark phase '<PHASE NAME>' as complete and sync README`.
+    - **Action:** Push the checkpoint, notes, and documentation updates to the remote repository.
       ```bash
       git push origin HEAD
       git push origin 'refs/notes/*'
       ```
 
-10.  **Announce Completion:** Inform the user that the phase is complete and the checkpoint has been created, with the detailed verification report attached as a git note.
+11.  **Announce Completion:** Inform the user that the phase is complete, the README is synced, and the checkpoint has been created, with the detailed verification report attached as a git note.
 
 ### Quality Gates
 
