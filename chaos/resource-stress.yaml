@@ -1,0 +1,35 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: order-service-cpu-stress
+  namespace: default
+spec:
+  mode: all
+  selector:
+    labelSelectors:
+      app.kubernetes.io/name: order-service
+  stressors:
+    cpu:
+      workers: 1
+      load: 100
+  duration: '3m'
+  scheduler:
+    cron: '@every 15m'
+---
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: inventory-service-memory-stress
+  namespace: default
+spec:
+  mode: all
+  selector:
+    labelSelectors:
+      app.kubernetes.io/name: inventory-service
+  stressors:
+    memory:
+      workers: 1
+      size: '256MB'
+  duration: '3m'
+  scheduler:
+    cron: '@every 15m'
