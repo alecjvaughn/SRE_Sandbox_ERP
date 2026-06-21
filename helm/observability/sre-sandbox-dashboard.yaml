@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sre-sandbox-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  sre-sandbox.json: |-
+    {
+      "title": "SRE Sandbox Operations",
+      "uid": "sre-sandbox",
+      "tags": ["sre", "sandbox"],
+      "timezone": "browser",
+      "schemaVersion": 16,
+      "version": 0,
+      "refresh": "5s",
+      "panels": [
+        {
+          "title": "Order Service RPS",
+          "type": "timeseries",
+          "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+          "targets": [
+            {
+              "expr": "rate(http_requests_total{job=\"order-service\"}[1m])",
+              "legendFormat": "{{status}}"
+            }
+          ]
+        },
+        {
+          "title": "CPU Usage (Order & Inventory)",
+          "type": "timeseries",
+          "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"default\", pod=~\"order-service.*|inventory-service.*\"}[1m])) by (pod)",
+              "legendFormat": "{{pod}}"
+            }
+          ]
+        },
+        {
+          "title": "Kafka Consumer Lag",
+          "type": "stat",
+          "gridPos": {"h": 8, "w": 24, "x": 0, "y": 8},
+          "targets": [
+            {
+              "expr": "sum(kafka_consumergroup_lag)",
+              "legendFormat": "Total Lag"
+            }
+          ]
+        }
+      ]
+    }

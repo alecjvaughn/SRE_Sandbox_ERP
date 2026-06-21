@@ -16,9 +16,9 @@
 - [x] Task: Conductor - User Manual Verification 'ServiceMonitor Configuration' (Protocol in workflow.md)
 
 ## Phase: Dashboard as Code
-- [ ] Task: Create Grafana Dashboard ConfigMap
-    - [ ] Define JSON dashboard structure for RPS, Latency, CPU, Memory, and Lag
-    - [ ] Wrap JSON in a Kubernetes ConfigMap labeled for Grafana auto-discovery (`grafana_dashboard: "1"`)
-- [ ] Task: Validate Manifests
-    - [ ] Run `helm lint` and template checks to validate the new configuration
-- [ ] Task: Conductor - User Manual Verification 'Dashboard as Code' (Protocol in workflow.md)
+- [x] Task: Create Grafana Dashboard ConfigMap
+    - [x] Define JSON dashboard structure for RPS, Latency, CPU, Memory, and Lag
+    - [x] Wrap JSON in a Kubernetes ConfigMap labeled for Grafana auto-discovery (`grafana_dashboard: "1"`)
+- [x] Task: Validate Manifests
+    - [x] Run `helm lint` and template checks to validate the new configuration
+- [x] Task: Conductor - User Manual Verification 'Dashboard as Code' (Protocol in workflow.md)
