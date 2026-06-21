@@ -1,10 +1,10 @@
 # Implementation Plan: Observability Stack
 
 ## Phase: Helm Chart Preparation
-- [ ] Task: Scaffold `kube-prometheus-stack` values
-    - [ ] Create `helm/observability/values.yaml` configuration file for the stack
-    - [ ] Add instructions for the Prometheus Community Helm repo to `helm/README.md`
-- [ ] Task: Conductor - User Manual Verification 'Helm Chart Preparation' (Protocol in workflow.md)
+- [x] Task: Scaffold `kube-prometheus-stack` values
+    - [x] Create `helm/observability/values.yaml` configuration file for the stack
+    - [x] Add instructions for the Prometheus Community Helm repo to `helm/README.md`
+- [x] Task: Conductor - User Manual Verification 'Helm Chart Preparation' (Protocol in workflow.md)
 
 ## Phase: ServiceMonitor Configuration
 - [ ] Task: Define `order-service` ServiceMonitor

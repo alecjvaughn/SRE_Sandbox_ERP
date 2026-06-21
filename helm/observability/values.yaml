@@ -1,0 +1,15 @@
+# Values for kube-prometheus-stack
+
+grafana:
+  enabled: true
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValue: "1"
+
+prometheus:
+  prometheusSpec:
+    # Enable scanning for ServiceMonitors across all namespaces or specific ones
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
