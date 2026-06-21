@@ -1,0 +1,1 @@
+Task: Define Network Latency Experiment. Created chaos/network-latency.yaml to inject 500ms delay between application services and Kafka.
