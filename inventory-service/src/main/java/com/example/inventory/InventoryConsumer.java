@@ -26,7 +26,7 @@ public class InventoryConsumer {
 
     private static final Logger LOG = Logger.getLogger(InventoryConsumer.class);
 
-    @ConfigProperty(name = "kafka.bootstrap.servers", defaultValue = "kafka-service:9092")
+    @ConfigProperty(name = "kafka.bootstrap.servers", defaultValue = "localhost:9092")
     String bootstrapServers;
 
     @ConfigProperty(name = "kafka.topic", defaultValue = "orders")
