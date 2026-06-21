@@ -1,0 +1,1 @@
+Phase: Project Scaffolding. Automated Test: cd inventory-service && ./mvnw test. Manual Verification: 1. Ensure server running, 2. curl /healthz, 3. expect OK. Confirmed by user: Yes.
