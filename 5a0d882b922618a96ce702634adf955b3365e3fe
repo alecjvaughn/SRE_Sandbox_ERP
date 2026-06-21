@@ -1,0 +1,1 @@
+Task: Define Pod Eviction Experiment. Created chaos/pod-eviction.yaml defining PodChaos to terminate order-service and inventory-service pods every 2 minutes.
