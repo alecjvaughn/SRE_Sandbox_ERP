@@ -23,3 +23,11 @@
     - [x] Monitor `/healthz` endpoints for recovery
     - [x] Validate system recovery via Grafana/Prometheus dashboards
 - [x] Task: Conductor - User Manual Verification 'Validation and Observability' (Protocol in workflow.md) 706c72c
+
+## Phase: UI Dashboard Metrics Validation [checkpoint: d34c7e8]
+- [x] Task: Fix cAdvisor label filtering for Grafana d34c7e8
+    - [x] Identify "No Data" issue caused by missing container labels in Minikube
+    - [x] Configure Prometheus `cAdvisorMetricRelabelings` override via Helm values
+    - [x] Validate CPU/Memory Chaos telemetry appears correctly on default dashboards
+    - [x] Document workaround in `README.md`
+- [x] Task: Conductor - User Manual Verification 'UI Dashboard Validation' d34c7e8
