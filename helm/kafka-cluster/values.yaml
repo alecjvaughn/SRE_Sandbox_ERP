@@ -21,3 +21,12 @@ affinity:
 listeners:
   client:
     protocol: PLAINTEXT
+
+metrics:
+  kafka:
+    enabled: true
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
+    labels:
+      release: observability

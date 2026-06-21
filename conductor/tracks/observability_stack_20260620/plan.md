@@ -7,13 +7,13 @@
 - [x] Task: Conductor - User Manual Verification 'Helm Chart Preparation' (Protocol in workflow.md)
 
 ## Phase: ServiceMonitor Configuration
-- [ ] Task: Define `order-service` ServiceMonitor
-    - [ ] Update `helm/order-service/templates/servicemonitor.yaml` or create a standalone manifest
-- [ ] Task: Define `inventory-service` ServiceMonitor
-    - [ ] Update `helm/inventory-service/templates/servicemonitor.yaml` or create a standalone manifest
-- [ ] Task: Define `kafka-cluster` ServiceMonitor
-    - [ ] Configure `values.yaml` for Bitnami Kafka to enable JMX exporter and `metrics.serviceMonitor.enabled=true`
-- [ ] Task: Conductor - User Manual Verification 'ServiceMonitor Configuration' (Protocol in workflow.md)
+- [x] Task: Define `order-service` ServiceMonitor
+    - [x] Update `helm/order-service/templates/servicemonitor.yaml` or create a standalone manifest
+- [x] Task: Define `inventory-service` ServiceMonitor
+    - [x] Update `helm/inventory-service/templates/servicemonitor.yaml` or create a standalone manifest
+- [x] Task: Define `kafka-cluster` ServiceMonitor
+    - [x] Configure `values.yaml` for Bitnami Kafka to enable JMX exporter and `metrics.serviceMonitor.enabled=true`
+- [x] Task: Conductor - User Manual Verification 'ServiceMonitor Configuration' (Protocol in workflow.md)
 
 ## Phase: Dashboard as Code
 - [ ] Task: Create Grafana Dashboard ConfigMap

@@ -1,0 +1,17 @@
+{{- if .Values.metrics.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "inventory-service.fullname" . }}
+  labels:
+    {{- include "inventory-service.labels" . | nindent 4 }}
+    release: observability
+spec:
+  selector:
+    matchLabels:
+      {{- include "inventory-service.selectorLabels" . | nindent 6 }}
+  endpoints:
+    - port: http
+      path: /q/metrics
+      interval: 15s
+{{- end }}
