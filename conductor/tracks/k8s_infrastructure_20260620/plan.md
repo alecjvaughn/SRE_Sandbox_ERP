@@ -1,12 +1,12 @@
 # Implementation Plan: Kubernetes Active-Active Infrastructure
 
 ## Phase: Helm Chart Scaffolding
-- [ ] Task: Scaffold base Helm charts
-    - [ ] Create `helm/order-service` directory structure
-    - [ ] Create `helm/inventory-service` directory structure
-- [ ] Task: Configure Kafka dependency
-    - [ ] Define a `helm/kafka-cluster` configuration or document Bitnami Kafka installation steps
-- [ ] Task: Conductor - User Manual Verification 'Helm Chart Scaffolding' (Protocol in workflow.md)
+- [x] Task: Scaffold base Helm charts
+    - [x] Create `helm/order-service` directory structure
+    - [x] Create `helm/inventory-service` directory structure
+- [x] Task: Configure Kafka dependency
+    - [x] Define a `helm/kafka-cluster` configuration or document Bitnami Kafka installation steps
+- [x] Task: Conductor - User Manual Verification 'Helm Chart Scaffolding' (Protocol in workflow.md)
 
 ## Phase: Application Manifest Definitions
 - [ ] Task: Implement `order-service` Helm templates

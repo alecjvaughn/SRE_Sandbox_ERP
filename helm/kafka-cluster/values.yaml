@@ -1,0 +1,23 @@
+# Bitnami Kafka Values for SRE Sandbox ERP
+
+kraft:
+  enabled: true
+
+zookeeper:
+  enabled: false
+
+# Enforce Hard Anti-Affinity for Kafka Brokers
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+                - kafka
+        topologyKey: "kubernetes.io/hostname"
+
+listeners:
+  client:
+    protocol: PLAINTEXT
