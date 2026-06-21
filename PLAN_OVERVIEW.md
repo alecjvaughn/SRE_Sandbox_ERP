@@ -55,3 +55,11 @@ Status: `Completed`
 - [x] Phase 1: Project Scaffolding
 - [x] Phase 2: Application Logic Implementation
 - [x] Phase 3: Dockerization and Infrastructure Updates
+
+## Future / Optional Tracks
+### Track: ArgoCD GitOps Management
+Status: `Planned (Optional)`
+- Restructure project to separate application source from deployment manifests
+- Implement Secret management strategy (e.g. Sealed Secrets) for GitOps
+- Implement CI pipeline workflow for automated image tag deployments
+- Bootstrap ArgoCD to the Kubernetes cluster
