@@ -20,12 +20,12 @@
 - [x] Task: Conductor - User Manual Verification 'Application Manifest Definitions' (Protocol in workflow.md)
 
 ## Phase: Ingress and State Configuration
-- [ ] Task: Configure Ingress and Load Balancer
-    - [ ] Define Ingress resource for `order-service`
-    - [ ] Provide DigitalOcean Load Balancer annotations/documentation
-- [ ] Task: Configure Kafka Hard Anti-Affinity
-    - [ ] Define custom `values.yaml` for `bitnami/kafka` applying `requiredDuringSchedulingIgnoredDuringExecution`
-- [ ] Task: Validate Helm Charts
-    - [ ] Run `helm lint` on application charts
-    - [ ] Run `helm template` to verify output structure
-- [ ] Task: Conductor - User Manual Verification 'Ingress and State Configuration' (Protocol in workflow.md)
+- [x] Task: Configure Ingress and Load Balancer
+    - [x] Define Ingress resource for `order-service`
+    - [x] Provide DigitalOcean Load Balancer annotations/documentation
+- [x] Task: Configure Kafka Hard Anti-Affinity
+    - [x] Define custom `values.yaml` for `bitnami/kafka` applying `requiredDuringSchedulingIgnoredDuringExecution`
+- [x] Task: Validate Helm Charts
+    - [x] Run `helm lint` on application charts
+    - [x] Run `helm template` to verify output structure
+- [x] Task: Conductor - User Manual Verification 'Ingress and State Configuration' (Protocol in workflow.md)
