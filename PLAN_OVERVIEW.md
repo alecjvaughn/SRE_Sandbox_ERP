@@ -64,8 +64,11 @@ Status: `Completed`
 
 ## Planned & Future Tracks
 
-
-
+### Track: Infrastructure as Code (IaC) Provisioning
+Status: `Planned`
+- Write Terraform scripts to provision DigitalOcean Kubernetes (DOKS)
+- Configure DigitalOcean Container Registry (DOCR) and Load Balancer
+- Automate secure access and cluster role bindings
 ### Track: Observability Stack
 Status: `Planned`
 - Deploy `kube-prometheus-stack` (Prometheus Operator & Grafana)
