@@ -20,8 +20,6 @@ spec:
         app.kubernetes.io/name: kafka
     mode: all
   duration: '2m'
-  scheduler:
-    cron: '@every 10m'
 ---
 apiVersion: chaos-mesh.org/v1alpha1
 kind: NetworkChaos
@@ -45,5 +43,3 @@ spec:
         app.kubernetes.io/name: kafka
     mode: all
   duration: '2m'
-  scheduler:
-    cron: '@every 10m'

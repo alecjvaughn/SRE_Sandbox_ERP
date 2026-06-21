@@ -13,8 +13,6 @@ spec:
       workers: 1
       load: 100
   duration: '3m'
-  scheduler:
-    cron: '@every 15m'
 ---
 apiVersion: chaos-mesh.org/v1alpha1
 kind: StressChaos
@@ -31,5 +29,3 @@ spec:
       workers: 1
       size: '256MB'
   duration: '3m'
-  scheduler:
-    cron: '@every 15m'

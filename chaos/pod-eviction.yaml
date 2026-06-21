@@ -9,8 +9,6 @@ spec:
   selector:
     labelSelectors:
       app.kubernetes.io/name: order-service
-  scheduler:
-    cron: "@every 2m"
 ---
 apiVersion: chaos-mesh.org/v1alpha1
 kind: PodChaos
@@ -23,5 +21,3 @@ spec:
   selector:
     labelSelectors:
       app.kubernetes.io/name: inventory-service
-  scheduler:
-    cron: "@every 2m"
