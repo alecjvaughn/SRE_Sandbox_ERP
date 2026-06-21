@@ -15,7 +15,7 @@ This repository contains the core transactional and event-driven foundation of t
 - **Phase 1-4**: Core Microservices & Local Sandbox (Completed).
 - **Phase 5**: Kubernetes Active-Active Infrastructure (Completed).
 - **Phase 6**: Observability Stack (Completed).
-- **Phase 7**: Chaos Engineering - Setup Chaos Mesh (Completed).
+- **Phase 7**: Chaos Engineering & Testing (Completed).
 
 ## 🛠 Prerequisites
 

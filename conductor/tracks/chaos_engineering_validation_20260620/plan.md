@@ -17,9 +17,9 @@
     - [x] Create `StressChaos` manifest to simulate resource exhaustion on application pods
 - [x] Task: Conductor - User Manual Verification 'Chaos Experiments Implementation' (Protocol in workflow.md) 8e9573e
 
-## Phase: Validation and Observability
-- [~] Task: Execute and Monitor Local Experiments
-    - [ ] Apply chaos manifests to the minikube cluster
-    - [ ] Monitor `/healthz` endpoints for recovery
-    - [ ] Validate system recovery via Grafana/Prometheus dashboards
-- [ ] Task: Conductor - User Manual Verification 'Validation and Observability' (Protocol in workflow.md)
+## Phase: Validation and Observability [checkpoint: 706c72c]
+- [x] Task: Execute and Monitor Local Experiments a54910c
+    - [x] Apply chaos manifests to the minikube cluster
+    - [x] Monitor `/healthz` endpoints for recovery
+    - [x] Validate system recovery via Grafana/Prometheus dashboards
+- [x] Task: Conductor - User Manual Verification 'Validation and Observability' (Protocol in workflow.md) 706c72c
