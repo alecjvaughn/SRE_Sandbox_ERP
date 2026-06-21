@@ -21,6 +21,7 @@
 - [x] Task: Conductor - User Manual Verification 'Application Logic Implementation' (Protocol in workflow.md) [checkpoint: 2590631]
 
 ## Phase: Dockerization and Infrastructure Updates
-- [ ] Task: Write multi-stage Dockerfile for Quarkus Maven build
-- [ ] Task: Update `docker-compose.yml` to reflect new container build and ports
+- [x] Task: Write multi-stage Dockerfile for Quarkus Maven build [4100ea6]
+    - [x] Create `Dockerfile` in `inventory-service` to build and package application
+- [x] Task: Update `docker-compose.yml` to reflect new container build and ports [0aa53b8]
 - [ ] Task: Conductor - User Manual Verification 'Dockerization and Infrastructure Updates' (Protocol in workflow.md)
