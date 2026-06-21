@@ -14,9 +14,10 @@
     - [x] Create Kafka consumer service using Native Apache Kafka Client
     - [x] Parse incoming JSON order payloads
     - [x] Implement structured JSON logging
-- [ ] Task: Implement Prometheus Metrics
-    - [ ] Expose `/metrics` endpoint using Micrometer Prometheus extension
-    - [ ] Increment `inventory_events_total` counter upon processing orders
+- [x] Task: Implement Prometheus Metrics [6e6ab50]
+    - [x] Expose `/metrics` endpoint using Micrometer Prometheus extension
+    - [x] Increment `inventory_events_total` counter upon processing orders
+    - [x] Increment `inventory_errors_total` on parsing/processing failures
 - [ ] Task: Conductor - User Manual Verification 'Application Logic Implementation' (Protocol in workflow.md)
 
 ## Phase: Dockerization and Infrastructure Updates
