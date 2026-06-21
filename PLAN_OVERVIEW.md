@@ -12,16 +12,16 @@ graph TD
     Node2 -->|Active-Active| Go2[order-service-b Pod]
     Go1 -->|Produce event| Kafka[Confluent Kafka Broker]
     Go2 -->|Produce event| Kafka
-    Kafka -->|Consume event| Py1[inventory-py-a Pod]
-    Kafka -->|Consume event| Py2[inventory-py-b Pod]
+    Kafka -->|Consume event| Java1[inventory-java-a Pod]
+    Kafka -->|Consume event| Java2[inventory-java-b Pod]
     
-    Chaos[Chaos Mesh] -->|Inject Failures| Py1
-    Chaos -->|Inject Failures| Py2
+    Chaos[Chaos Mesh] -->|Inject Failures| Java1
+    Chaos -->|Inject Failures| Java2
     
     Prom[Prometheus] -->|Scrape /metrics| Go1
     Prom -->|Scrape /metrics| Go2
-    Prom -->|Scrape /metrics| Py1
-    Prom -->|Scrape /metrics| Py2
+    Prom -->|Scrape /metrics| Java1
+    Prom -->|Scrape /metrics| Java2
     Prom -->|Scrape /metrics| Kafka
     
     Grafana[Grafana Dashboard] -->|Query| Prom
@@ -31,7 +31,7 @@ graph TD
 
 ### Core Requirements
 - **Active-Active REST Gateway**: Go `order-service` with anti-affinity running across multiple nodes.
-- **Background Event Processing**: Python `inventory-service` consuming events via Kafka.
+- **Background Event Processing**: Java `inventory-service` (Quarkus) consuming events via Kafka.
 - **Chaos Resilience**: Pod eviction recovery, latency, and memory limit handling.
 - **Full Observability**: Live Prometheus scraping and Grafana metrics dashboard.
 
@@ -43,24 +43,15 @@ graph TD
 
 ---
 
-## Active Track: Implement Go Order and Python Inventory Services with Kafka Event Bus
+## Completed Tracks
+### Track: Implement Go Order and Python Inventory Services with Kafka Event Bus
+Status: `Completed`
+- [x] Phase 1: Go Order Service
+- [x] Phase 2: Python Inventory Service
+- [x] Phase 3: Integration and Docker Compose Local Sandbox
 
-Track ID: `core_services_20260620`
-Status: `In Progress`
-
-### Phase 1: Go Order Service
-- [ ] Implement HTTP Endpoints and Basic Validation (TDD)
-- [ ] Implement Kafka Producer (TDD)
-- [ ] Add Observability and Docker Containerization
-- [ ] Conductor - User Manual Verification 'Phase 1: Go Order Service'
-
-### Phase 2: Python Inventory Service
-- [ ] Implement Health Server and Metric Server (TDD)
-- [ ] Implement Kafka Consumer and Event Handlers (TDD)
-- [ ] Python Containerization
-- [ ] Conductor - User Manual Verification 'Phase 2: Python Inventory Service'
-
-### Phase 3: Integration and Docker Compose Local Sandbox
-- [ ] Orchestrate Sandbox with Docker Compose
-- [ ] End-to-End Pipeline Verification
-- [ ] Conductor - User Manual Verification 'Phase 3: Integration and Docker Compose Local Sandbox'
+### Track: Migrate Inventory Service to Java (Quarkus)
+Status: `Completed`
+- [x] Phase 1: Project Scaffolding
+- [x] Phase 2: Application Logic Implementation
+- [x] Phase 3: Dockerization and Infrastructure Updates
