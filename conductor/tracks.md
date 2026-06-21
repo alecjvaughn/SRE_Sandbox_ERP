@@ -4,3 +4,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
+
+---
+
+- [ ] **Track: Kubernetes Active-Active Infrastructure**
+  *Link: [./tracks/k8s_infrastructure_20260620/](./tracks/k8s_infrastructure_20260620/)*
