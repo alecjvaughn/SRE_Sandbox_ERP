@@ -15,7 +15,7 @@ This repository contains the core transactional and event-driven foundation of t
 - **Phase 1**: Implementing Go Order Service endpoints and TDD scaffolding (Completed).
 - **Phase 2**: Implementing Python Inventory Service consumer (Completed).
 - **Phase 3**: Integration and Docker Compose Local Sandbox (Completed).
-- **Phase 4**: Migrating Inventory Service to Java/Quarkus (In Progress).
+- **Phase 4**: Migrating Inventory Service to Java/Quarkus (Completed).
 
 ## 🛠 Prerequisites
 
