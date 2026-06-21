@@ -10,10 +10,10 @@
 - [x] Task: Implement Health Check Endpoint [8025de4]
     - [x] Write tests for `/healthz` endpoint
     - [x] Implement REST resource returning 200 OK
-- [ ] Task: Implement Kafka Consumer
-    - [ ] Create Kafka consumer service using Native Apache Kafka Client
-    - [ ] Parse incoming JSON order payloads
-    - [ ] Implement structured JSON logging
+- [x] Task: Implement Kafka Consumer [179e92a]
+    - [x] Create Kafka consumer service using Native Apache Kafka Client
+    - [x] Parse incoming JSON order payloads
+    - [x] Implement structured JSON logging
 - [ ] Task: Implement Prometheus Metrics
     - [ ] Expose `/metrics` endpoint using Micrometer Prometheus extension
     - [ ] Increment `inventory_events_total` counter upon processing orders
