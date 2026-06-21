@@ -2,17 +2,17 @@
 
 ## 1. Programming Languages & Runtime Environments
 - **Go (Golang) 1.22+**: Used for the high-performance transaction API (`order-service`).
-- **Python 3.11+**: Used for the background event consumer and inventory manager (`inventory-service`).
+- **Java 21+**: Used for the background event consumer and inventory manager (`inventory-service`).
 
 ## 2. Frameworks & Libraries
 - **Go Order Service**:
   - `net/http` (Standard Library) for REST API.
   - `github.com/twmb/franz-go` for optimized, high-throughput Kafka producer communication.
   - `github.com/prometheus/client_golang/prometheus/promhttp` for native Prometheus metric exposing.
-- **Python Inventory Service**:
-  - `http.server` (Standard Library) for health checking and light administration.
-  - `kafka-python` (or `confluent-kafka`) for Kafka consumer messaging.
-  - `prometheus_client` for Python runtime metrics.
+- **Java (Quarkus) Inventory Service**:
+  - `Quarkus RESTEasy` for health checking and light administration.
+  - `Native Apache Kafka Client` for Kafka consumer messaging.
+  - `Micrometer Metrics` for Java runtime and application metrics.
 
 ## 3. Infrastructure & Orchestration
 - **Local Dev Sandbox**: `Docker Compose` or `Kind (Kubernetes in Docker)` for zero-cost rapid local prototyping.
