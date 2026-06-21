@@ -3,25 +3,12 @@
 kubelet:
   serviceMonitor:
     insecureSkipVerify: true # Minikube uses self-signed certs for kubelet
-
-# Inject recording rules that bypass the strict 'image' and 'container' label requirements
-# since Minikube's cAdvisor drops these for root pod cgroups.
-additionalPrometheusRulesMap:
-  minikube-rules:
-    groups:
-      - name: minikube.k8s.rules
-        rules:
-          - expr: |
-              sum by (namespace, pod) (
-                irate(container_cpu_usage_seconds_total{job="kubelet", metrics_path="/metrics/cadvisor"}[5m])
-              ) * on (namespace, pod) group_left(node) topk by (namespace, pod) (
-                1, max by(namespace, pod, node) (kube_pod_info{node!=""})
-              )
-            record: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate
-          - expr: |
-              sum by (namespace, pod) (
-                container_memory_working_set_bytes{job="kubelet", metrics_path="/metrics/cadvisor"}
-              ) * on (namespace, pod) group_left(node) topk by(namespace, pod) (
-                1, max by(namespace, pod, node) (kube_pod_info{node!=""})
-              )
-            record: node_namespace_pod_container:container_memory_working_set_bytes
+    cAdvisorMetricRelabelings:
+      # Inject missing 'container' and 'image' labels using the pod name
+      # to satisfy the strict kube-prometheus-stack dashboard queries.
+      - sourceLabels: [pod]
+        targetLabel: container
+        action: replace
+      - sourceLabels: [pod]
+        targetLabel: image
+        action: replace
