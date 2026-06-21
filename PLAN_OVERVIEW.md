@@ -56,13 +56,15 @@ Status: `Completed`
 - [x] Phase 2: Application Logic Implementation
 - [x] Phase 3: Dockerization and Infrastructure Updates
 
+### Track: Kubernetes Active-Active Infrastructure
+Status: `Completed`
+- [x] Define Kubernetes Deployment manifests for `order-service` and `inventory-service`
+- [x] Implement replica anti-affinity rules for high availability
+- [x] Configure DigitalOcean Load Balancer and Ingress rules
+
 ## Planned & Future Tracks
 
-### Track: Kubernetes Active-Active Infrastructure
-Status: `Planned`
-- Define Kubernetes Deployment manifests for `order-service` and `inventory-service`
-- Implement replica anti-affinity rules for high availability
-- Configure DigitalOcean Load Balancer and Ingress rules
+
 
 ### Track: Observability Stack
 Status: `Planned`
