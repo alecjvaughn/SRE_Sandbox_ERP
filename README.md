@@ -53,3 +53,13 @@ The local sandbox runs completely via Docker Compose, utilizing Apache Kafka in 
    ```bash
    curl -X POST http://localhost:8080/order -d '{"order_id": "test-1", "item": "Widget", "qty": 5}'
    ```
+
+## ⚠️ Known Issues
+
+### Grafana Dashboards "No Data" in Minikube
+When running the `kube-prometheus-stack` locally in Minikube, the default Grafana dashboard "Kubernetes / Compute Resources / Namespace (Workloads)" may show "No Data" for CPU and Memory metrics.
+- **Root Cause**: The default Prometheus recording rules require `image!=""` and `container!=""` labels. However, Minikube's `containerd` cAdvisor drops these labels for root pod cgroups. The dashboard's hardcoded JSON filters cause the metrics to be filtered out entirely. Furthermore, Prometheus fails to scrape Minikube's `kubelet` by default due to self-signed TLS certificates.
+- **Workaround 1 (TLS Bypass)**: Apply a patch to the `kubelet.serviceMonitor` to set `insecureSkipVerify: true` (e.g. via `helm/observability/values-minikube.yaml`).
+- **Workaround 2 (Raw Queries)**: Instead of relying on the default dashboards, use the **Grafana Explore** tab to query the raw metrics directly. For example:
+  - CPU Usage: `rate(container_cpu_usage_seconds_total{namespace="default"}[1m])`
+  - Memory Usage: `container_memory_working_set_bytes{namespace="default"}`
