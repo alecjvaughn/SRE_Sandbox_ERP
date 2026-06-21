@@ -4,7 +4,7 @@
 - [x] Task: Initialize Quarkus Maven project for `inventory-service` [e10148f]
     - [x] Generate project structure with required extensions (RESTEasy, Micrometer/Prometheus, Kafka Client)
     - [x] Remove old Python files (`app.py`, `consumer.py`, `requirements.txt`)
-- [ ] Task: Conductor - User Manual Verification 'Project Scaffolding' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Project Scaffolding' (Protocol in workflow.md) [checkpoint: 110f569]
 
 ## Phase: Application Logic Implementation
 - [ ] Task: Implement Health Check Endpoint
