@@ -68,22 +68,26 @@ Status: `Completed`
 - [x] Configure ServiceMonitors to scrape application metrics
 - [x] Create Grafana dashboards for throughput, resource usage, and application health
 
+### Track: Migrate to Confluent Kafka
+Status: `Completed`
+- [x] Pre-Migration Cleanup
+- [x] Confluent Kafka Deployment
+- [x] Application Integration & IaC Alignment
+
 ## Planned & Future Tracks
 
-### Track: Infrastructure as Code (IaC) Provisioning
-Status: `Planned`
-- Write Terraform scripts to provision DigitalOcean Kubernetes (DOKS)
-- Configure DigitalOcean Container Registry (DOCR) and Load Balancer
-- Automate secure access and cluster role bindings
-### Track: Chaos Engineering Validation
-Status: `Planned`
-- Deploy Chaos Mesh to the Kubernetes cluster
-- Define and execute chaos experiments (e.g., pod eviction, network latency)
-- Validate self-healing and alerting mechanisms under stress
+### Track: Infrastructure as Code (IaC) Provisioning & ArgoCD GitOps
+Status: `Completed`
+- [x] Defined local sandbox environment via `Kind`
+- [x] Bootstrapped ArgoCD and managed GitOps structure
+- [x] Migrated applications, Confluent Operator, and Kafka to ArgoCD
 
-### Track: ArgoCD GitOps Management
-Status: `Planned (Optional)`
-- Restructure project to separate application source from deployment manifests
-- Implement Secret management strategy (e.g. Sealed Secrets) for GitOps
-- Implement CI pipeline workflow for automated image tag deployments
-- Bootstrap ArgoCD to the Kubernetes cluster
+### Track: Chaos Engineering Validation
+Status: `Completed`
+- [x] Deployed Chaos Mesh to the cluster via ArgoCD
+- [x] Defined and executed chaos experiments (pod eviction, network latency/loss)
+- [x] Validated system recovery and observability metrics under stress
+
+## Planned & Future Tracks
+
+*No planned tracks remaining. All initial SRE sandbox objectives have been met.*
