@@ -17,6 +17,8 @@ spec:
           value: containerd
         - name: chaosDaemon.socketPath
           value: /run/containerd/containerd.sock
+        - name: dashboard.securityMode
+          value: "false"
   destination:
     server: https://kubernetes.default.svc
     namespace: chaos-mesh
