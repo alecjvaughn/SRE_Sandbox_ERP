@@ -6,9 +6,9 @@
 - [x] Task: Conductor - User Manual Verification 'Pre-Migration Cleanup' (Protocol in workflow.md) 0cdaab7
 
 ## Phase: Confluent Kafka Deployment
-- [~] Task: Add the Confluent Helm repository and configure it for a 3-node KRaft topology
-- [ ] Task: Write updated Helm `values.yaml` for the new Kafka cluster
-- [ ] Task: Deploy the Confluent Kafka cluster to the Minikube environment
+- [~] Task: Add the Confluent CFK Helm repository and configure it for a 3-node KRaft topology
+- [ ] Task: Write updated CFK CRDs for the new Kafka cluster
+- [ ] Task: Deploy the CFK Operator and Confluent Kafka cluster to the Minikube environment
 - [ ] Task: Wait for pods to become healthy and verify cluster formation
 - [ ] Task: Conductor - User Manual Verification 'Confluent Kafka Deployment' (Protocol in workflow.md)
 

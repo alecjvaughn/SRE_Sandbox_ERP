@@ -21,7 +21,7 @@
 - **Configuration Management**: `Helm` for managing Kubernetes manifests, applying soft/hard anti-affinity rules, and defining workload resource constraints.
 
 ## 4. Message Broker (Event-Driven Fabric)
-- **Apache Kafka**: Single or multi-node broker deployment utilizing KRaft mode (no Zookeeper) within Kubernetes (using `apache/kafka` or standard Helm charts).
+- **Apache Kafka**: Confluent for Kubernetes (CFK) Operator deploying a KRaft-enabled Kafka architecture.
 
 ## 5. Chaos & Observability
 - **Chaos Injections**: `Chaos Mesh` Custom Resource Definitions (CRDs) targeting cluster workloads (pod kills, network partitions).
