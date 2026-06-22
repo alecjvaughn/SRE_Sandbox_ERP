@@ -23,7 +23,7 @@ data:
           "targets": [
             {
               "expr": "rate(http_requests_total{job=\"order-service\"}[1m])",
-              "legendFormat": "{{status}}"
+              "legendFormat": "{{ "{{status}}" }}"
             }
           ]
         },
@@ -34,7 +34,7 @@ data:
           "targets": [
             {
               "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"default\", pod=~\"order-service.*|inventory-service.*\"}[1m])) by (pod)",
-              "legendFormat": "{{pod}}"
+              "legendFormat": "{{ "{{pod}}" }}"
             }
           ]
         },
