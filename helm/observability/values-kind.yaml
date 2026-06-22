@@ -1,0 +1,4 @@
+kube-prometheus-stack:
+  kubelet:
+    serviceMonitor:
+      insecureSkipVerify: true # Kind/Minikube uses self-signed certs for kubelet
