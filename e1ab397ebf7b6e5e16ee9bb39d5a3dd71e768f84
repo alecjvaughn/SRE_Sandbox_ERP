@@ -1,0 +1,4 @@
+Task: Implement core TCP listening and connection handling (TDD)
+
+Summary: Implemented the Go proxy Server with basic TCP listening, connection acceptance, and graceful shutdown handling with wait groups.
+Files: edge-proxy/internal/proxy/server.go, edge-proxy/internal/proxy/server_test.go
