@@ -9,6 +9,7 @@ spec:
   description: "SRE Sandbox Project"
   sourceRepos:
     - "https://github.com/alecjvaughn/SRE_Sandbox_ERP.git"
+    - "https://packages.confluent.io/helm"
   destinations:
     - namespace: "*"
       server: https://kubernetes.default.svc
