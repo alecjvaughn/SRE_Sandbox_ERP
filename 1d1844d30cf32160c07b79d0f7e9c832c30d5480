@@ -1,0 +1,4 @@
+Task: Instrument proxy with Prometheus metrics and Integrate bytes tracking
+
+Summary: Added Prometheus dependencies. Defined connection and byte transfer metrics. Implemented real-time metric incrementing in handleConnection loop. Exposed /metrics HTTP endpoint.
+Files: edge-proxy/internal/metrics/metrics.go, edge-proxy/internal/proxy/server.go, edge-proxy/cmd/proxy/main.go
