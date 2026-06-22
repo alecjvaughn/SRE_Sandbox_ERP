@@ -1,0 +1,7 @@
+Verification Report: Phase Confluent CLI Integration & Documentation
+Automated Test Command: N/A (Documentation updates)
+Manual Verification Steps:
+1. Open the README.md file in the root of the project.
+2. Review the newly added Infrastructure as Code (IaC) & GitOps section.
+3. Confirm that the teardown instructions and Confluent CLI port-forward instructions are accurate.
+User Confirmation: Yes, the documentation looks good.
