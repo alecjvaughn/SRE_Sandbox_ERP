@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: edge-proxy-cost-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  edge-proxy-cost.json: |-
+    {
+      "title": "Edge Proxy Egress Costs",
+      "uid": "edge-proxy-cost",
+      "tags": ["sre", "cost", "proxy"],
+      "timezone": "browser",
+      "schemaVersion": 16,
+      "version": 0,
+      "refresh": "5s",
+      "panels": [
+        {
+          "title": "Proxy Active Connections",
+          "type": "stat",
+          "gridPos": {"h": 8, "w": 8, "x": 0, "y": 0},
+          "targets": [
+            {
+              "expr": "sum(proxy_active_connections)",
+              "legendFormat": "Connections"
+            }
+          ]
+        },
+        {
+          "title": "Network I/O (Bytes/sec)",
+          "type": "timeseries",
+          "gridPos": {"h": 8, "w": 16, "x": 8, "y": 0},
+          "targets": [
+            {
+              "expr": "sum(rate(proxy_bytes_in_total[1m])) by (downstream_az)",
+              "legendFormat": "In - {{ downstream_az }}"
+            },
+            {
+              "expr": "sum(rate(proxy_bytes_out_total[1m])) by (downstream_az)",
+              "legendFormat": "Out - {{ downstream_az }}"
+            }
+          ]
+        },
+        {
+          "title": "Simulated Egress Cost ($0.01/GB)",
+          "type": "timeseries",
+          "gridPos": {"h": 8, "w": 24, "x": 0, "y": 8},
+          "targets": [
+            {
+              "expr": "sum(proxy_bytes_out_total) by (downstream_az) / 1073741824 * 0.01",
+              "legendFormat": "Cost ($) - {{ downstream_az }}"
+            }
+          ]
+        }
+      ]
+    }
