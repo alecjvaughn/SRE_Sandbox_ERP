@@ -1,14 +1,15 @@
-# SRE Sandbox ERP
+# SRE Sandbox: Cost-Aware Traffic Plane & Egress Optimizer (Azure AKS)
 
-This repository contains the core transactional and event-driven foundation of the SRE Sandbox. It simulates an ERP architecture consisting of a Go-based order service and a Java-based inventory service communicating via a Kafka event bus.
+This repository has evolved from an ERP simulation into an advanced cloud-native data plane simulation targeting the optimization of ingress and egress traffic for Confluent Kafka workloads. Built for Azure Kubernetes Service (AKS), the project focuses on network routing, failover mechanisms, and bandwidth cost efficiency across Availability Zones.
 
 ## 🏗 Architecture
 
-- **Go Order Service**: Active-active REST gateway handling incoming orders.
+- **Custom Go Edge Proxy**: Intelligent Layer 4 TCP proxy for dynamically routing Kafka traffic based on AZ health and cost.
+- **Go Order Service**: Active-active REST gateway handling incoming messages.
 - **Java (Quarkus) Inventory Service**: Background event processing consumer listening to Kafka.
 - **Kafka**: Confluent Kafka broker managing the event bus.
-- **Observability**: Prometheus scraping and Grafana dashboards.
-- **Resilience**: Chaos Mesh for injecting latency, failures, and evictions.
+- **Observability**: Prometheus scraping and Grafana dashboards tracking Network I/O and Egress Costs.
+- **Resilience**: Chaos Mesh for injecting network degradation, latency, and failovers.
 
 ## 🚀 Current Status
 
@@ -16,7 +17,8 @@ This repository contains the core transactional and event-driven foundation of t
 - **Phase 5**: Kubernetes Active-Active Infrastructure (Completed).
 - **Phase 6**: Observability Stack (Completed).
 - **Phase 7**: Chaos Engineering & Testing (Completed).
-- **Phase 8**: Infrastructure as Code & GitOps (In Progress).
+- **Phase 8**: Infrastructure as Code (Azure AKS Provisioning) (Completed).
+- **Phase 9**: Custom Go Edge Proxy & Egress Cost Analysis (In Progress - Core TCP Engine complete).
 
 ## 🛠 Prerequisites
 
@@ -24,7 +26,7 @@ This repository contains the core transactional and event-driven foundation of t
 - [Java 21+](https://jdk.java.net/) & Maven
 - [Docker](https://docs.docker.com/get-docker/) & Docker Compose
 - [Terraform](https://www.terraform.io/)
-- [Kind](https://kind.sigs.k8s.io/)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 ## 📂 Project Structure
 
@@ -33,9 +35,10 @@ This repository contains the core transactional and event-driven foundation of t
 ├── PLAN_OVERVIEW.md    # High-level roadmap and architectural goals
 ├── argocd/             # GitOps definitions (App of Apps)
 ├── conductor/          # Tracks, specification, and agent workflow plans
+├── edge-proxy/         # Custom Go Layer 4 TCP Traffic Proxy
 ├── inventory-service/  # Java Quarkus Kafka consumer and metrics server
 ├── order-service/      # Go REST API for handling orders
-├── terraform/          # Infrastructure as Code (Terraform configs)
+├── terraform/          # Infrastructure as Code (Azure configs)
 └── README.md           # This evolving project documentation
 ```
 

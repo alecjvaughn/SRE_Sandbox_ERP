@@ -1,15 +1,15 @@
 # Implementation Plan: Custom Go Edge Proxy & Egress Cost Analysis
 
-## Phase 1: Go Edge Proxy Core Network Engine
+## Phase 1: Go Edge Proxy Core Network Engine [checkpoint: 460e955]
 - [x] Task: Set up the proxy project scaffold in Go [a3d9b69]
     - [x] Initialize `go mod` in a new `edge-proxy` directory.
     - [x] Define the project structure (`cmd/`, `internal/proxy/`, `internal/metrics/`).
 - [x] Task: Implement core TCP listening and connection handling (TDD) [e1ab397]
     - [x] Write tests for TCP listener and graceful shutdown.
     - [x] Implement TCP listener binding to a configured port.
-- [ ] Task: Implement Layer 4 Pass-through and Routing
-    - [ ] Write unit tests for connection copying (bidirectional byte streaming).
-    - [ ] Implement the proxy tunneling logic to forward bytes from client to downstream broker.
+- [x] Task: Implement Layer 4 Pass-through and Routing [3948233]
+    - [x] Write unit tests for connection copying (bidirectional byte streaming).
+    - [x] Implement the proxy tunneling logic to forward bytes from client to downstream broker.
 
 ## Phase 2: Dynamic Routing and Failover Logic
 - [ ] Task: Implement downstream health checking
