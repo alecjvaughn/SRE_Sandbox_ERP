@@ -1,7 +1,7 @@
 {
   "track_id": "chaos_engineering_validation_20260620",
   "type": "feature",
-  "status": "new",
+  "status": "in_progress",
   "created_at": "2026-06-20T23:54:05Z",
   "updated_at": "2026-06-20T23:54:05Z",
   "description": "Chaos Engineering Validation"
