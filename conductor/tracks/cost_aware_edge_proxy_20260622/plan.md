@@ -29,15 +29,16 @@
     - [x] Implement a custom `io.Reader` / `io.Writer` wrapper to count bytes passing through the proxy.
     - [x] Update the Prometheus counters in real-time as data streams.
 
-## Phase 4: Infrastructure & Chaos Deployment
-- [ ] Task: Containerize and deploy the Edge Proxy
-    - [ ] Write a `Dockerfile` for the `edge-proxy`.
-    - [ ] Update `Makefile` to build and deploy the proxy image to AKS.
-    - [ ] Create Kubernetes manifests (`Deployment`, `Service`, `ServiceMonitor`) and add them to ArgoCD.
-- [ ] Task: Define and execute NetworkChaos experiments
-    - [ ] Create `NetworkChaos` YAML manifests targeting the proxy to inject 500ms latency and 20% packet loss.
-    - [ ] Deploy the chaos manifests to the cluster and validate proxy failover resilience.
-- [ ] Task: Configure Grafana Egress Cost Dashboard
-    - [ ] Create a Grafana dashboard JSON model plotting the proxy's network I/O.
-    - [ ] Add a panel calculating simulated costs (e.g., $0.01 per GB for cross-AZ traffic).
+## Phase 4: Infrastructure & Chaos Deployment [checkpoint: 6110bbe]
+- [x] Task: Containerize and deploy the Edge Proxy [34aef02]
+    - [x] Write a `Dockerfile` for the `edge-proxy`.
+    - [x] Update `Makefile` to build and deploy the proxy image to AKS.
+    - [x] Create Kubernetes manifests (`Deployment`, `Service`, `ServiceMonitor`) and add them to ArgoCD.
+- [x] Task: Define and execute NetworkChaos experiments [fefa5ee]
+    - [x] Create `NetworkChaos` YAML manifests targeting the proxy to inject 500ms latency and 20% packet loss.
+    - [x] Deploy the chaos manifests to the cluster and validate proxy failover resilience.
+- [x] Task: Configure Grafana Egress Cost Dashboard [e149c12]
+    - [x] Create a Grafana dashboard JSON model plotting the proxy's network I/O.
+    - [x] Add a panel calculating simulated costs (e.g., $0.01 per GB for cross-AZ traffic).
+    - [x] Add dashboard config map to ArgoCD observability manifests.
 - [ ] Task: Conductor - User Manual Verification 'Infrastructure & Chaos Deployment' (Protocol in workflow.md)
