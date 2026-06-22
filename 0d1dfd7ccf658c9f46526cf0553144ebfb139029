@@ -1,0 +1,4 @@
+Task: Implement AZ-aware routing and failover
+
+Summary: Implemented Router module to prefer healthy endpoints in the same AZ, then fallback to other AZs. Updated Server handleConnection to use the router with 3 automatic connection retries.
+Files: edge-proxy/internal/proxy/server.go, edge-proxy/internal/proxy/server_test.go, edge-proxy/internal/proxy/router.go, edge-proxy/internal/proxy/router_test.go
