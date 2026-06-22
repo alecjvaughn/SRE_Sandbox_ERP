@@ -18,8 +18,8 @@
 - [x] Task: Create documentation/scripts for ad-hoc Confluent CLI usage for monitoring and testing the KRaft cluster
 - [x] Task: Conductor - User Manual Verification 'Confluent CLI Integration & Documentation' (Protocol in workflow.md) [b7b068f]
 
-## Phase: Makefile Automation & Teardown Utilities [checkpoint: TBD]
+## Phase: Makefile Automation & Teardown Utilities [checkpoint: 5b21cab]
 - [x] Task: Create a `Makefile` with atomic instructions for Docker image management
 - [x] Task: Add atomic Kubernetes management commands to the `Makefile`
 - [x] Task: Add environment nuke/teardown commands to the `Makefile` for clean slate resets
-- [ ] Task: Conductor - User Manual Verification 'Makefile Automation & Teardown Utilities' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Makefile Automation & Teardown Utilities' (Protocol in workflow.md) [5b21cab]
