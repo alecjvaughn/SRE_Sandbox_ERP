@@ -1,0 +1,8 @@
+{
+  "track_id": "iac_terraform_argocd_20260621",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-06-21T23:54:47Z",
+  "updated_at": "2026-06-21T23:54:47Z",
+  "description": "define the IaC for the project using Terraform and Helm/ArgoCD. Focus on redploying the project from a clean slate."
+}
