@@ -1,7 +1,7 @@
 # Implementation Plan: Define IaC using Terraform and ArgoCD
 
 ## Phase: Initial Terraform Bootstrap [checkpoint: TBD]
-- [ ] Task: Create initial Terraform directory structure and provider configuration
+- [x] Task: Create initial Terraform directory structure and provider configuration [4225df7]
 - [ ] Task: Write Terraform code to install ArgoCD via Helm into the Minikube cluster
 - [ ] Task: Apply Terraform locally to verify ArgoCD installation
 - [ ] Task: Conductor - User Manual Verification 'Initial Terraform Bootstrap' (Protocol in workflow.md)
@@ -17,3 +17,9 @@
 - [ ] Task: Document local testing procedures for tearing down and rebuilding with `terraform apply`
 - [ ] Task: Create documentation/scripts for ad-hoc Confluent CLI usage for monitoring and testing the KRaft cluster
 - [ ] Task: Conductor - User Manual Verification 'Confluent CLI Integration & Documentation' (Protocol in workflow.md)
+
+## Phase: Makefile Automation & Teardown Utilities [checkpoint: TBD]
+- [ ] Task: Create a `Makefile` with atomic instructions for Docker image management
+- [ ] Task: Add atomic Kubernetes management commands to the `Makefile`
+- [ ] Task: Add environment nuke/teardown commands to the `Makefile` for clean slate resets
+- [ ] Task: Conductor - User Manual Verification 'Makefile Automation & Teardown Utilities' (Protocol in workflow.md)
