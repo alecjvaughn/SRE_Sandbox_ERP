@@ -41,4 +41,4 @@
     - [x] Create a Grafana dashboard JSON model plotting the proxy's network I/O.
     - [x] Add a panel calculating simulated costs (e.g., $0.01 per GB for cross-AZ traffic).
     - [x] Add dashboard config map to ArgoCD observability manifests.
-- [ ] Task: Conductor - User Manual Verification 'Infrastructure & Chaos Deployment' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Infrastructure & Chaos Deployment' (Protocol in workflow.md)
