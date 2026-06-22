@@ -1,0 +1,1 @@
+Task: Document tech-stack update. Updated tech-stack and plan to use Confluent for Kubernetes (CFK) Operator to support 3-node KRaft.
