@@ -1,0 +1,6 @@
+Task: Apply Terraform locally to verify ArgoCD installation
+Summary: Verified that the Terraform apply command successfully installed ArgoCD into the local Kind cluster. Updated .gitignore to properly track the Terraform lock file while ignoring local state files.
+Files:
+- .gitignore
+- terraform/.terraform.lock.hcl
+Why: To ensure reproducible provider versions and keep sensitive local state files out of version control.
