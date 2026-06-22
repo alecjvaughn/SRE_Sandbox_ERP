@@ -1,12 +1,12 @@
 # Implementation Plan: Migrate to Confluent Kafka
 
-## Phase: Pre-Migration Cleanup
+## Phase: Pre-Migration Cleanup [checkpoint: 0cdaab7]
 - [x] Task: Uninstall the existing Bitnami Kafka Helm release 2ff0f96
 - [x] Task: Delete any lingering PVCs, Services, or ConfigMaps associated with the old Kafka cluster 0f5b895
-- [~] Task: Conductor - User Manual Verification 'Pre-Migration Cleanup' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Pre-Migration Cleanup' (Protocol in workflow.md) 0cdaab7
 
 ## Phase: Confluent Kafka Deployment
-- [ ] Task: Add the Confluent Helm repository and configure it for a 3-node KRaft topology
+- [~] Task: Add the Confluent Helm repository and configure it for a 3-node KRaft topology
 - [ ] Task: Write updated Helm `values.yaml` for the new Kafka cluster
 - [ ] Task: Deploy the Confluent Kafka cluster to the Minikube environment
 - [ ] Task: Wait for pods to become healthy and verify cluster formation
