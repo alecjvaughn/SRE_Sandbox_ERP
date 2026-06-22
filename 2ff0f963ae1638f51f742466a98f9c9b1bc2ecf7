@@ -1,0 +1,4 @@
+Task: Uninstall the existing Bitnami Kafka Helm release
+Summary: Uninstalled the broken bitnami kafka-cluster release from default namespace.
+Files: None
+Why: Preparing to migrate to confluentinc/cp-kafka.
