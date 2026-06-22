@@ -13,9 +13,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Migrate to Confluent Kafka**
-*Link: [./tracks/migrate_kafka_20260621/](./tracks/migrate_kafka_20260621/)*
-
 ---
 
 - [x] **Track: Define IaC using Terraform and ArgoCD**

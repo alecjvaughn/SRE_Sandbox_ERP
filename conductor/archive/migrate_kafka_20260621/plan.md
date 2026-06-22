@@ -13,8 +13,8 @@
 - [x] Task: Conductor - User Manual Verification 'Confluent Kafka Deployment' (Completed via IaC Track)
 
 ## Phase: Application Integration & IaC Alignment [checkpoint: TBD]
-- [ ] Task: Identify the correct Kafka bootstrap server URLs for the new Confluent cluster
-- [ ] Task: Inject the Kafka URLs as environment variables into `order-service` and `inventory-service` Helm charts (`values.yaml` / `deployment.yaml`)
-- [ ] Task: Commit the changes to trigger an ArgoCD GitOps sync and verify pod rollout
-- [ ] Task: Run test requests to ensure the microservices successfully produce and consume events against the new cluster
+- [x] Task: Identify the correct Kafka bootstrap server URLs for the new Confluent cluster 037b30c
+- [x] Task: Inject the Kafka URLs as environment variables into `order-service` and `inventory-service` Helm charts (`values.yaml` / `deployment.yaml`) 037b30c
+- [x] Task: Commit the changes to trigger an ArgoCD GitOps sync and verify pod rollout 037b30c
+- [x] Task: Run test requests to ensure the microservices successfully produce and consume events against the new cluster ab0951f
 - [ ] Task: Conductor - User Manual Verification 'Application Integration & IaC Alignment' (Protocol in workflow.md)
