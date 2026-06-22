@@ -26,6 +26,11 @@ func NewServer(bindAddr string) *Server {
 	}
 }
 
+// SetDownstream sets the downstream address. Temporary for Phase 1.
+func (s *Server) SetDownstream(addr string) {
+	s.downstreamAddr = addr
+}
+
 // Start begins listening for TCP connections.
 // It blocks until Shutdown is called or a listener error occurs.
 func (s *Server) Start() error {
