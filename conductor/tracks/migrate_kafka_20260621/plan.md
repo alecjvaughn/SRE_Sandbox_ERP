@@ -2,8 +2,8 @@
 
 ## Phase: Pre-Migration Cleanup
 - [x] Task: Uninstall the existing Bitnami Kafka Helm release 2ff0f96
-- [~] Task: Delete any lingering PVCs, Services, or ConfigMaps associated with the old Kafka cluster
-- [ ] Task: Conductor - User Manual Verification 'Pre-Migration Cleanup' (Protocol in workflow.md)
+- [x] Task: Delete any lingering PVCs, Services, or ConfigMaps associated with the old Kafka cluster 0f5b895
+- [~] Task: Conductor - User Manual Verification 'Pre-Migration Cleanup' (Protocol in workflow.md)
 
 ## Phase: Confluent Kafka Deployment
 - [ ] Task: Add the Confluent Helm repository and configure it for a 3-node KRaft topology
