@@ -20,14 +20,14 @@
     - [x] Update the proxy to select the best downstream connection upon client connect.
     - [x] Implement automatic connection retry/failover if the downstream fails during the handshake.
 
-## Phase 3: Cost-Centric Observability & Metrics
-- [ ] Task: Instrument proxy with Prometheus metrics
-    - [ ] Add `prometheus/client_golang` dependency.
-    - [ ] Define custom counters: `proxy_bytes_in_total`, `proxy_bytes_out_total`, `proxy_active_connections`.
-    - [ ] Expose an HTTP `/metrics` endpoint on a separate admin port.
-- [ ] Task: Integrate bytes tracking into the TCP tunnel
-    - [ ] Implement a custom `io.Reader` / `io.Writer` wrapper to count bytes passing through the proxy.
-    - [ ] Update the Prometheus counters in real-time as data streams.
+## Phase 3: Cost-Centric Observability & Metrics [checkpoint: cab77dd]
+- [x] Task: Instrument proxy with Prometheus metrics [1d1844d]
+    - [x] Add `prometheus/client_golang` dependency.
+    - [x] Define custom counters: `proxy_bytes_in_total`, `proxy_bytes_out_total`, `proxy_active_connections`.
+    - [x] Expose an HTTP `/metrics` endpoint on a separate admin port.
+- [x] Task: Integrate bytes tracking into the TCP tunnel [1d1844d]
+    - [x] Implement a custom `io.Reader` / `io.Writer` wrapper to count bytes passing through the proxy.
+    - [x] Update the Prometheus counters in real-time as data streams.
 
 ## Phase 4: Infrastructure & Chaos Deployment
 - [ ] Task: Containerize and deploy the Edge Proxy
