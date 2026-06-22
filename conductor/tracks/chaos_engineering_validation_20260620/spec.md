@@ -7,6 +7,7 @@ This track introduces chaos engineering experiments using Chaos Mesh to validate
 - **Experiment Scope**: Configure and run the following Chaos Mesh experiments:
   - **Pod Eviction**: Randomly terminate pods in `order-service` and `inventory-service` to test Kubernetes ReplicaSet recovery.
   - **Network Latency**: Inject latency between `order-service`, `inventory-service`, and the Kafka broker to validate timeouts and retry mechanisms.
+  - **Advanced Kafka Network Chaos**: Inject packet loss, 500ms latency delays, and bandwidth throttling specifically between `order-service` and Kafka brokers, with randomized cron schedulers re-enabled.
   - **CPU/Memory Stress**: Simulate resource exhaustion on pods to test Kubernetes resource limits and OOM recovery.
 - **Success Criteria**: 
   - Automated health checks (`/healthz`) must eventually return 200 OK without manual intervention after failures.

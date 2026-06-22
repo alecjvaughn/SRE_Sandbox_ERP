@@ -31,3 +31,11 @@
     - [x] Validate CPU/Memory Chaos telemetry appears correctly on default dashboards
     - [x] Document workaround in `README.md`
 - [x] Task: Conductor - User Manual Verification 'UI Dashboard Validation' d34c7e8
+
+## Phase: Advanced Kafka Network Chaos [checkpoint: TBD]
+- [ ] Task: Re-activate chaos schedulers and define advanced network faults
+    - [ ] Update `NetworkChaos` manifests with `Schedule` CRDs or cron schedules for randomized attacks
+    - [ ] Inject packet loss rules between `order-service` and Kafka
+    - [ ] Inject bandwidth throttling rules between `order-service` and Kafka
+    - [ ] Validate 500ms latency rules
+- [ ] Task: Conductor - User Manual Verification 'Advanced Kafka Network Chaos' (Protocol in workflow.md)
