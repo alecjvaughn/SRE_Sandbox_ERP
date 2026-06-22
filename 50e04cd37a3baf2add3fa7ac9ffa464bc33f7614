@@ -1,0 +1,4 @@
+Task: Write make commands for automated environment teardown to enforce ephemeral lifecycle.
+
+Summary: Verified that the Makefile already contains the 'azure-destroy' and 'nuke' commands to easily tear down the infrastructure and clean the terraform state.
+Files: Makefile
