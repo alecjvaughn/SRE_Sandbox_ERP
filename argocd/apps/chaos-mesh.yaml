@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: chaos-mesh
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: sre-sandbox
+  source:
+    repoURL: 'https://charts.chaos-mesh.org'
+    targetRevision: 2.6.2
+    chart: chaos-mesh
+    helm:
+      parameters:
+        - name: chaosDaemon.runtime
+          value: containerd
+        - name: chaosDaemon.socketPath
+          value: /run/containerd/containerd.sock
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: chaos-mesh
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
