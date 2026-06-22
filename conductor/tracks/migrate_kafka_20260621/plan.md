@@ -1,8 +1,8 @@
 # Implementation Plan: Migrate to Confluent Kafka
 
 ## Phase: Pre-Migration Cleanup
-- [ ] Task: Uninstall the existing Bitnami Kafka Helm release
-- [ ] Task: Delete any lingering PVCs, Services, or ConfigMaps associated with the old Kafka cluster
+- [x] Task: Uninstall the existing Bitnami Kafka Helm release 2ff0f96
+- [~] Task: Delete any lingering PVCs, Services, or ConfigMaps associated with the old Kafka cluster
 - [ ] Task: Conductor - User Manual Verification 'Pre-Migration Cleanup' (Protocol in workflow.md)
 
 ## Phase: Confluent Kafka Deployment
