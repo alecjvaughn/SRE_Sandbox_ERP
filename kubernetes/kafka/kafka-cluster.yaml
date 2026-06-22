@@ -8,6 +8,7 @@ spec:
   image:
     application: confluentinc/cp-server:7.6.0
     init: confluentinc/confluent-init-container:2.8.0
+  dataVolumeCapacity: 1Gi
 ---
 apiVersion: platform.confluent.io/v1beta1
 kind: Kafka
@@ -19,6 +20,7 @@ spec:
   image:
     application: confluentinc/cp-server:7.6.0
     init: confluentinc/confluent-init-container:2.8.0
+  dataVolumeCapacity: 1Gi
   dependencies:
     kRaftController:
       clusterRef:
