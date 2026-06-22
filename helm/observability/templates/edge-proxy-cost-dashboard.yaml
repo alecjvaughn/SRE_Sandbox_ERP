@@ -34,11 +34,11 @@ data:
           "targets": [
             {
               "expr": "sum(rate(proxy_bytes_in_total[1m])) by (downstream_az)",
-              "legendFormat": "In - {{ downstream_az }}"
+              "legendFormat": "In - {{ \"{{\" }} downstream_az {{ \"}}\" }}"
             },
             {
               "expr": "sum(rate(proxy_bytes_out_total[1m])) by (downstream_az)",
-              "legendFormat": "Out - {{ downstream_az }}"
+              "legendFormat": "Out - {{ \"{{\" }} downstream_az {{ \"}}\" }}"
             }
           ]
         },
@@ -49,7 +49,7 @@ data:
           "targets": [
             {
               "expr": "sum(proxy_bytes_out_total) by (downstream_az) / 1073741824 * 0.01",
-              "legendFormat": "Cost ($) - {{ downstream_az }}"
+              "legendFormat": "Cost ($) - {{ \"{{\" }} downstream_az {{ \"}}\" }}"
             }
           ]
         }
