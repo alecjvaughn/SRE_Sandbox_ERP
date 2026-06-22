@@ -1,0 +1,3 @@
+Task: Write updated CFK CRDs for the new Kafka cluster
+Summary: Added kraftcontroller and kafka CRDs.
+Files: kafka/cfk-cluster.yaml
