@@ -1,0 +1,8 @@
+Phase: Pre-Migration Cleanup
+Verification Report:
+- Automated Tests: N/A (Infrastructure Cleanup)
+- Manual Verification Steps:
+  1. helm list -n default (Verify kafka-cluster removed)
+  2. kubectl get pods -n default (Verify pods removed)
+  3. kubectl get pvc -n default (Verify volumes removed)
+- User Confirmation: 'Yes, the cleanup looks perfect. Proceed!'
