@@ -1,0 +1,19 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: proxy-latency-loss
+  namespace: default
+spec:
+  action: delay
+  mode: all
+  selector:
+    labelSelectors:
+      app.kubernetes.io/name: edge-proxy
+  delay:
+    latency: '500ms'
+    correlation: '100'
+    jitter: '0ms'
+  loss:
+    loss: '20'
+    correlation: '100'
+  duration: '5m'
