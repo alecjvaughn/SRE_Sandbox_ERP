@@ -10,7 +10,7 @@
 - [x] Task: Create ArgoCD `AppProject` and root `Application` (App of Apps) manifest [be10b01]
 - [x] Task: Create child application manifests for Confluent Kafka Operator and CRDs [5eb98fe]
 - [x] Task: Create child application manifests for `order-service` and `inventory-service` [d8d0c71]
-- [ ] Task: Apply root ArgoCD application and verify cascading deployments
+- [x] Task: Apply root ArgoCD application and verify cascading deployments [32d5260]
 - [ ] Task: Conductor - User Manual Verification 'ArgoCD App of Apps Configuration' (Protocol in workflow.md)
 
 ## Phase: Confluent CLI Integration & Documentation [checkpoint: TBD]
