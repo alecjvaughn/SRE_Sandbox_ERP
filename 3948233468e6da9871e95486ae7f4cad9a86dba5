@@ -1,0 +1,4 @@
+Task: Implement Layer 4 Pass-through and Routing
+
+Summary: Implemented bidirectional io.Copy to proxy byte streams between a client connection and a downstream address. Added tests using an echo downstream server.
+Files: edge-proxy/internal/proxy/server.go, edge-proxy/internal/proxy/server_test.go
