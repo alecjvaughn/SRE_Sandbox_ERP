@@ -1,0 +1,3 @@
+Task: Deploy the CFK Operator and Confluent Kafka cluster to the Minikube environment
+Summary: Executed helm upgrade to install confluent-operator and applied cfk-cluster.yaml.
+Files: None
