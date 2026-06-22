@@ -1,0 +1,3 @@
+Task: Add the Confluent CFK Helm repository and configure it for a 3-node KRaft topology
+Summary: Added confluentinc-cfk helm repo and fetched default values for the operator.
+Files: helm/cfk-operator/default-values.yaml
