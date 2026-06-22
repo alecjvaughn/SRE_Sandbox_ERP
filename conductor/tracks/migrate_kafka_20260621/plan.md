@@ -8,8 +8,8 @@
 ## Phase: Confluent Kafka Deployment
 - [x] Task: Add the Confluent CFK Helm repository and configure it for a 3-node KRaft topology 9800675
 - [x] Task: Write updated CFK CRDs for the new Kafka cluster 86d0546
-- [~] Task: Deploy the CFK Operator and Confluent Kafka cluster to the Minikube environment
-- [ ] Task: Wait for pods to become healthy and verify cluster formation
+- [x] Task: Deploy the CFK Operator and Confluent Kafka cluster to the Minikube environment c9d6829
+- [~] Task: Wait for pods to become healthy and verify cluster formation
 - [ ] Task: Conductor - User Manual Verification 'Confluent Kafka Deployment' (Protocol in workflow.md)
 
 ## Phase: Application Integration
