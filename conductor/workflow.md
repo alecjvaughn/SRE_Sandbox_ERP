@@ -8,6 +8,7 @@
 4. **High Code Coverage:** Aim for >80% code coverage for all modules
 5. **User Experience First:** Every decision should prioritize user experience
 6. **Non-Interactive & CI-Aware:** Prefer non-interactive commands. Use `CI=true` for watch-mode tools (tests, linters) to ensure single execution.
+7. **IaC First & Synced:** Infrastructure as Code (IaC) must be established early (before or in tandem with microservices) and kept strictly in-sync with active development.
 
 ## Task Workflow
 
@@ -44,30 +45,34 @@ All tasks follow a strict lifecycle:
    - Add dated note explaining the change
    - Resume implementation
 
-8. **Subtask Review & Visual Testing Guide:**
+8. **Sync Infrastructure as Code (IaC):**
+   - Ensure any new configurations, dependencies, ports, or scaling requirements are synced to the Terraform/ArgoCD manifests.
+   - Microservice development must not outpace the IaC definitions.
+
+9. **Subtask Review & Visual Testing Guide:**
    - **Subtask Verification:** Explicitly review the track's `plan.md` to ensure every subtask nested under the current task has been implemented. Check off (`[x]`) all completed subtasks. If any subtasks are incomplete, **do not proceed**; implement them first.
    - **Provide Testing Guide:** Propose a proactive, step-by-step Visual Testing Guide (or manual verification plan) in the chat so the user can visually/manually test the task's functionality before it is committed.
    - **Await Feedback (Optional):** Ask the user if they'd like to test it now or proceed with the commit.
 
-9. **Commit Code Changes:**
-   - Stage all code changes related to the task.
-   - Propose a clear, concise commit message e.g, `feat(ui): Create basic HTML structure for calculator`.
-   - Perform the commit.
+10. **Commit Code Changes:**
+    - Stage all code changes related to the task.
+    - Propose a clear, concise commit message e.g, `feat(ui): Create basic HTML structure for calculator`.
+    - Perform the commit.
 
-10. **Attach Task Summary with Git Notes:**
-   - **Step 10.1: Get Commit Hash:** Obtain the hash of the *just-completed commit* (`git log -1 --format="%H"`).
-   - **Step 10.2: Draft Note Content:** Create a detailed summary for the completed task. This should include the task name, a summary of changes, a list of all created/modified files, and the core "why" for the change.
-   - **Step 10.3: Attach Note:** Use the `git notes` command to attach the summary to the commit.
-     ```bash
-     # The note content from the previous step is passed via the -m flag.
-     git notes add -m "<note content>" <commit_hash>
-     ```
+11. **Attach Task Summary with Git Notes:**
+    - **Step 11.1: Get Commit Hash:** Obtain the hash of the *just-completed commit* (`git log -1 --format="%H"`).
+    - **Step 11.2: Draft Note Content:** Create a detailed summary for the completed task. This should include the task name, a summary of changes, a list of all created/modified files, and the core "why" for the change.
+    - **Step 11.3: Attach Note:** Use the `git notes` command to attach the summary to the commit.
+      ```bash
+      # The note content from the previous step is passed via the -m flag.
+      git notes add -m "<note content>" <commit_hash>
+      ```
 
-11. **Get and Record Task Commit SHA:**
-    - **Step 11.1: Update Plan:** Read `plan.md`, find the line for the completed task, update its status from `[~]` to `[x]`, and append the first 7 characters of the *just-completed commit's* commit hash.
-    - **Step 11.2: Write Plan:** Write the updated content back to `plan.md`.
+12. **Get and Record Task Commit SHA:**
+    - **Step 12.1: Update Plan:** Read `plan.md`, find the line for the completed task, update its status from `[~]` to `[x]`, and append the first 7 characters of the *just-completed commit's* commit hash.
+    - **Step 12.2: Write Plan:** Write the updated content back to `plan.md`.
 
-12. **Commit Plan Update and Push:**
+13. **Commit Plan Update and Push:**
     - **Action:** Stage the modified `plan.md` file.
     - **Action:** Commit this change with a descriptive message (e.g., `conductor(plan): Mark task 'Create user model' as complete`).
     - **Action:** Push the changes and notes to the remote repository.

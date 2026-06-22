@@ -43,4 +43,5 @@
 ## Phase: Post-Migration Verification [checkpoint: TBD]
 - [ ] Task: Re-verify system recovery against new Confluent Kafka cluster
     - [ ] Run test orders to ensure UI and metrics are displaying recovery behavior
+- [ ] Task: Sync any new configurations, namespaces, or testing manifests into the IaC Terraform/ArgoCD repository structure
 - [ ] Task: Conductor - User Manual Verification 'Post-Migration Verification'

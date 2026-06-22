@@ -14,7 +14,7 @@ These guidelines establish standards for coding, configuration, documentation, a
 - **Dashboard Consistency**: Real-time dashboards in Grafana must use PromQL queries mapping usage percentage against hard resource limits.
 
 ## 3. Configuration & Deployment Guidelines
-- **Infrastructure as Code (IaC)**: Kubernetes manifests and Helm value overrides must be kept declarative and checked into version control.
+- **Infrastructure as Code (IaC)**: Kubernetes manifests and Helm value overrides must be kept declarative and checked into version control. IaC should be established early in the project lifecycle (before or in tandem with microservice development) and must be kept strictly in-sync with active development.
 - **Secrets Management**: No API keys, credentials, or TLS certificates may be committed to this repository. Use Kubernetes secrets or environment variable placeholders.
 - **Port Standards**:
   - Go Order Service API: port `8080` (container) / port `80` (load balancer)

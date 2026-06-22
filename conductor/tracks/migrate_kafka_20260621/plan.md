@@ -17,4 +17,5 @@
 - [ ] Task: Update the `values.yaml` or ConfigMaps for `order-service` and `inventory-service` with the new Kafka URLs
 - [ ] Task: Restart the microservices to pick up the new configuration
 - [ ] Task: Run test requests to ensure the Go applications can successfully produce and consume events
+- [ ] Task: Ensure all Confluent Kafka manifests and microservice configuration overrides are synced and deployed via the IaC/ArgoCD GitOps pipeline
 - [ ] Task: Conductor - User Manual Verification 'Application Integration' (Protocol in workflow.md)
