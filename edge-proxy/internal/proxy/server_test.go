@@ -50,3 +50,60 @@ func TestServer_StartAndStop(t *testing.T) {
 		t.Error("Start() did not return after Shutdown()")
 	}
 }
+
+func TestServer_ProxyConnection(t *testing.T) {
+	// 1. Start a mock downstream server (like a Kafka broker)
+	downstream, err := net.Listen("tcp", "127.0.0.1:0")
+	if err != nil {
+		t.Fatalf("Failed to start downstream server: %v", err)
+	}
+	defer downstream.Close()
+
+	// Mock downstream behavior: echo back whatever it receives
+	go func() {
+		for {
+			conn, err := downstream.Accept()
+			if err != nil {
+				return
+			}
+			go func(c net.Conn) {
+				defer c.Close()
+				buf := make([]byte, 1024)
+				n, _ := c.Read(buf)
+				c.Write(buf[:n])
+			}(conn)
+		}
+	}()
+
+	// 2. Start the proxy server pointing to the downstream
+	srv := NewServer("127.0.0.1:0")
+	srv.downstreamAddr = downstream.Addr().String()
+
+	go srv.Start()
+	time.Sleep(100 * time.Millisecond)
+	defer srv.Shutdown(context.Background())
+
+	// 3. Connect to proxy and send data
+	conn, err := net.Dial("tcp", srv.ListenAddr())
+	if err != nil {
+		t.Fatalf("Failed to connect to proxy: %v", err)
+	}
+	defer conn.Close()
+
+	msg := []byte("hello kafka")
+	if _, err := conn.Write(msg); err != nil {
+		t.Fatalf("Failed to write to proxy: %v", err)
+	}
+
+	// 4. Verify proxy forwarded the data back (echoed from downstream)
+	buf := make([]byte, 1024)
+	conn.SetReadDeadline(time.Now().Add(1 * time.Second))
+	n, err := conn.Read(buf)
+	if err != nil {
+		t.Fatalf("Failed to read from proxy: %v", err)
+	}
+
+	if string(buf[:n]) != string(msg) {
+		t.Errorf("Expected %q, got %q", msg, buf[:n])
+	}
+}

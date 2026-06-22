@@ -3,16 +3,19 @@ package proxy
 import (
 	"context"
 	"errors"
+	"io"
+	"log"
 	"net"
 	"sync"
 )
 
 // Server represents the TCP edge proxy server.
 type Server struct {
-	bindAddr string
-	listener net.Listener
-	wg       sync.WaitGroup
-	quit     chan struct{}
+	bindAddr       string
+	downstreamAddr string // Temporary single downstream
+	listener       net.Listener
+	wg             sync.WaitGroup
+	quit           chan struct{}
 }
 
 // NewServer creates a new proxy Server bound to the given address.
@@ -50,12 +53,36 @@ func (s *Server) Start() error {
 	}
 }
 
-func (s *Server) handleConnection(conn net.Conn) {
+func (s *Server) handleConnection(clientConn net.Conn) {
 	defer s.wg.Done()
-	defer conn.Close()
+	defer clientConn.Close()
 
-	// In the next phase, we'll route this to a downstream Kafka broker.
-	// For now, just hold the connection or close it.
+	if s.downstreamAddr == "" {
+		log.Println("No downstream configured")
+		return
+	}
+
+	downstreamConn, err := net.Dial("tcp", s.downstreamAddr)
+	if err != nil {
+		log.Printf("Failed to connect to downstream %s: %v\n", s.downstreamAddr, err)
+		return
+	}
+	defer downstreamConn.Close()
+
+	var wg sync.WaitGroup
+	wg.Add(2)
+
+	go func() {
+		defer wg.Done()
+		io.Copy(downstreamConn, clientConn)
+	}()
+
+	go func() {
+		defer wg.Done()
+		io.Copy(clientConn, downstreamConn)
+	}()
+
+	wg.Wait()
 }
 
 // ListenAddr returns the actual network address the server is listening on.
