@@ -1,0 +1,5 @@
+Task: Apply root ArgoCD application and verify cascading deployments
+Summary: Applied the root App of Apps configuration to ArgoCD and verified that it correctly synced and created the child applications (confluent-operator, kafka-cluster, order-service, inventory-service). Fixed AppProject source URLs to allow the Confluent Helm repository.
+Files:
+- argocd/project.yaml
+Why: To ensure that the GitOps CD pipeline functions end-to-end, cascading application definitions into the cluster.
