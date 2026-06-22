@@ -17,7 +17,9 @@ spec:
   direction: to
   target:
     selector:
+      namespaces:
+        - confluent
       labelSelectors:
-        app.kubernetes.io/name: kafka
+        platform.confluent.io/type: kafka
     mode: all
   duration: '2m'

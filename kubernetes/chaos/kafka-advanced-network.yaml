@@ -17,8 +17,10 @@ spec:
     direction: to
     target:
       selector:
+        namespaces:
+          - confluent
         labelSelectors:
-          app.kubernetes.io/name: kafka
+          platform.confluent.io/type: kafka
       mode: all
     delay:
       latency: "500ms"
@@ -45,8 +47,10 @@ spec:
     direction: to
     target:
       selector:
+        namespaces:
+          - confluent
         labelSelectors:
-          app.kubernetes.io/name: kafka
+          platform.confluent.io/type: kafka
       mode: all
     loss:
       loss: "50"
@@ -72,8 +76,10 @@ spec:
     direction: to
     target:
       selector:
+        namespaces:
+          - confluent
         labelSelectors:
-          app.kubernetes.io/name: kafka
+          platform.confluent.io/type: kafka
       mode: all
     bandwidth:
       rate: '1mbps'
