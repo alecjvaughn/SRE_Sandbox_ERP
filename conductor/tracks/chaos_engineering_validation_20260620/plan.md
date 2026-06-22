@@ -40,8 +40,18 @@
     - [x] Validate 500ms latency rules
 - [x] Task: Conductor - User Manual Verification 'Advanced Kafka Network Chaos' (Protocol in workflow.md) 728b9d0
 
-## Phase: Post-Migration Verification [checkpoint: TBD]
-- [ ] Task: Re-verify system recovery against new Confluent Kafka cluster
-    - [ ] Run test orders to ensure UI and metrics are displaying recovery behavior
-- [ ] Task: Sync any new configurations, namespaces, or testing manifests into the IaC Terraform/ArgoCD repository structure
-- [ ] Task: Conductor - User Manual Verification 'Post-Migration Verification'
+## Phase: IaC Alignment & Re-Verification [checkpoint: TBD]
+- [ ] Task: Re-install Chaos Mesh via ArgoCD GitOps pipeline
+    - [ ] Create an ArgoCD child application manifest for Chaos Mesh
+    - [ ] Deploy and verify the control plane on the `Kind` cluster
+- [ ] Task: Refactor existing Chaos manifests for Confluent KRaft compatibility
+    - [ ] Update `PodChaos` and `NetworkChaos` selectors to target the new Confluent Kafka pods instead of Bitnami Kafka
+- [ ] Task: Sync Chaos experiments into the IaC structure
+    - [ ] Relocate chaos manifests into the GitOps directory structure
+    - [ ] Create an ArgoCD application to declaratively manage the active chaos experiments
+- [ ] Task: Verify and fix Observability telemetry for `Kind`
+    - [ ] Verify if Grafana cAdvisor dashboards receive data from the new `Kind` runtime
+    - [ ] Adjust Prometheus `cAdvisorMetricRelabelings` or Helm configuration if necessary
+- [ ] Task: Re-execute and verify system recovery
+    - [ ] Run test orders to ensure UI and metrics are displaying recovery behavior against the Confluent cluster
+- [ ] Task: Conductor - User Manual Verification 'IaC Alignment & Re-Verification'
