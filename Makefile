@@ -1,7 +1,7 @@
 .PHONY: help bootstrap docker-build docker-build-order docker-build-inventory k8s-load k8s-load-order k8s-load-inventory k8s-apply k8s-destroy nuke
 
-ORDER_IMG ?= order-service:1.16.0
-INVENTORY_IMG ?= inventory-service:1.16.0
+ORDER_IMG ?= alecjvaughn/order-service:1.16.0
+INVENTORY_IMG ?= alecjvaughn/inventory-service:1.16.0
 PROXY_IMG ?= alecjvaughn/edge-proxy:latest
 KIND_CLUSTER_NAME ?= kind
 
@@ -22,6 +22,17 @@ docker-build-inventory: ## Build the inventory-service Docker image
 
 docker-build-proxy: ## Build the edge-proxy Docker image
 	cd edge-proxy && docker build -t $(PROXY_IMG) .
+
+docker-push: docker-push-order docker-push-inventory docker-push-proxy ## Push all Docker images to Docker Hub
+
+docker-push-order: ## Push the order-service Docker image
+	docker push $(ORDER_IMG)
+
+docker-push-inventory: ## Push the inventory-service Docker image
+	docker push $(INVENTORY_IMG)
+
+docker-push-proxy: ## Push the edge-proxy Docker image
+	docker push $(PROXY_IMG)
 
 # --- Kubernetes Management ---
 k8s-create: ## Create the Kind cluster
