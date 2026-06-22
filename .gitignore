@@ -1,1 +1,3 @@
 agent-session-logs/
+.terraform/
+.terraform.lock.hcl
