@@ -41,20 +41,30 @@ This repository contains the core transactional and event-driven foundation of t
 
 ## 💻 Getting Started
 
-The local sandbox runs completely via Docker Compose, utilizing Apache Kafka in KRaft mode (no Zookeeper required).
+The local sandbox runs completely via a Kubernetes `Kind` cluster, utilizing Apache Kafka in KRaft mode and managed via ArgoCD GitOps.
 
-1. **Start the local sandbox:**
+1. **Start the local sandbox (builds images, creates cluster, deploys ArgoCD):**
    ```bash
-   docker compose up --build -d
+   make bootstrap
    ```
 
-2. **Verify the services:**
+2. **Wait for ArgoCD to sync applications:**
+   ArgoCD will automatically start syncing all microservices. You can monitor the progress with:
+   ```bash
+   kubectl get applications -n argocd
+   kubectl get pods -n default
+   ```
+
+3. **Verify the services:**
+   You can port-forward the services to your local machine for testing:
+   ```bash
+   kubectl port-forward svc/order-service -n default 8080:8080 &
+   kubectl port-forward svc/inventory-service -n default 8081:8080 &
+   ```
    - Go Order Service API: `http://localhost:8080/order`
    - Inventory Service Health Check: `http://localhost:8081/healthz`
-   - Order Service Metrics: `http://localhost:8080/metrics`
-   - Inventory Service Metrics: `http://localhost:8000/metrics`
 
-3. **Send a test order:**
+4. **Send a test order:**
    ```bash
    curl -X POST http://localhost:8080/order -d '{"order_id": "test-1", "item": "Widget", "qty": 5}'
    ```

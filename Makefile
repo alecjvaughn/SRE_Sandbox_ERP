@@ -1,4 +1,4 @@
-.PHONY: help docker-build docker-build-order docker-build-inventory k8s-load k8s-load-order k8s-load-inventory k8s-apply k8s-destroy nuke
+.PHONY: help bootstrap docker-build docker-build-order docker-build-inventory k8s-load k8s-load-order k8s-load-inventory k8s-apply k8s-destroy nuke
 
 ORDER_IMG ?= order-service:1.16.0
 INVENTORY_IMG ?= inventory-service:1.16.0
@@ -6,6 +6,8 @@ KIND_CLUSTER_NAME ?= kind
 
 help: ## Show this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-25s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
+bootstrap: k8s-apply docker-build k8s-load ## Full rebuild: terraform apply, then build and load local images
 
 # --- Docker Image Management ---
 

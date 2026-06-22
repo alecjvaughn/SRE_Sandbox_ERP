@@ -23,5 +23,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: define the IaC for the project using Terraform and Helm/ArgoCD. Focus on redploying the project from a clean slate.**
+- [~] **Track: Define IaC using Terraform and ArgoCD**
 *Link: [./tracks/iac_terraform_argocd_20260621/](./tracks/iac_terraform_argocd_20260621/)*

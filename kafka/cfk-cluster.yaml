@@ -9,6 +9,10 @@ spec:
     application: confluentinc/cp-server:7.6.0
     init: confluentinc/confluent-init-container:2.8.0
   dataVolumeCapacity: 1G
+  configOverrides:
+    jvm:
+      - "-Xmx256M"
+      - "-Xms256M"
 ---
 apiVersion: platform.confluent.io/v1beta1
 kind: Kafka
@@ -21,6 +25,10 @@ spec:
     application: confluentinc/cp-server:7.6.0
     init: confluentinc/confluent-init-container:2.8.0
   dataVolumeCapacity: 1G
+  configOverrides:
+    jvm:
+      - "-Xmx256M"
+      - "-Xms256M"
   dependencies:
     kRaftController:
       clusterRef:
