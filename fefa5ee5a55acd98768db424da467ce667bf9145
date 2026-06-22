@@ -1,0 +1,4 @@
+Task: Define and execute NetworkChaos experiments
+
+Summary: Created NetworkChaos manifest proxy-latency-loss to inject 500ms latency and 20% packet loss into the edge proxy pods to test routing resilience.
+Files: kubernetes/chaos/proxy-latency-loss.yaml
