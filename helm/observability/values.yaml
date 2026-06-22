@@ -3,6 +3,13 @@
 kube-prometheus-stack:
   grafana:
     enabled: true
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: grafana.aleclabs.us
+      hosts:
+        - grafana.aleclabs.us
     sidecar:
       dashboards:
         enabled: true
