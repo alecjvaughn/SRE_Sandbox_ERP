@@ -8,7 +8,7 @@
 - [~] Task: Conductor - User Manual Verification 'Initial Azure CLI Setup & Ephemeral Infrastructure' (Protocol in workflow.md)
 
 ## Phase: Ingress & Cloudflare DNS Integration
-- [ ] Task: Deploy an Ingress Controller (e.g., NGINX) to the AKS cluster
+- [x] Task: Deploy an Ingress Controller (e.g., NGINX) to the AKS cluster [1c6d4b1]
 - [ ] Task: Configure Cloudflare DNS records to point `aleclabs.us` to the Azure Load Balancer Public IP
 - [ ] Task: Create Ingress rules to route `aleclabs.us` (or subdomains) to the Grafana dashboards
 - [ ] Task: Conductor - User Manual Verification 'Ingress & Cloudflare DNS Integration' (Protocol in workflow.md)
