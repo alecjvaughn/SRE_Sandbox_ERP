@@ -1,0 +1,6 @@
+Task: Create ArgoCD AppProject and root Application (App of Apps) manifest
+Summary: Created the ArgoCD AppProject and root Application manifest files for the App of Apps pattern.
+Files:
+- argocd/project.yaml
+- argocd/root-app.yaml
+Why: To establish the GitOps foundation, allowing ArgoCD to automatically deploy all other apps defined in the argocd/apps directory from the main repository branch.
