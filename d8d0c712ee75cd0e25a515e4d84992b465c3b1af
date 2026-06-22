@@ -1,0 +1,6 @@
+Task: Create child application manifests for order-service and inventory-service
+Summary: Created the child ArgoCD applications for deploying the order-service and inventory-service via their respective Helm charts located in the repository.
+Files:
+- argocd/apps/order-service.yaml
+- argocd/apps/inventory-service.yaml
+Why: To automate the deployment of the SRE Sandbox application workloads via GitOps using ArgoCD.
