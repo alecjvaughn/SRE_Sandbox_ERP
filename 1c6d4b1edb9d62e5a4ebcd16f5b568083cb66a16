@@ -1,0 +1,4 @@
+Task: Deploy an Ingress Controller (e.g., NGINX) to the AKS cluster
+
+Summary: Created an ArgoCD application manifest to deploy the official ingress-nginx Helm chart to provide a unified entry point and Azure Load Balancer for the AKS cluster.
+Files: argocd/apps/ingress-nginx.yaml
