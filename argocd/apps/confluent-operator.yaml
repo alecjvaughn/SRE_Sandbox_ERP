@@ -9,7 +9,7 @@ spec:
   project: sre-sandbox
   source:
     repoURL: 'https://packages.confluent.io/helm'
-    targetRevision: 0.908.14
+    targetRevision: 0.1514.40
     chart: confluent-for-kubernetes
   destination:
     server: https://kubernetes.default.svc
