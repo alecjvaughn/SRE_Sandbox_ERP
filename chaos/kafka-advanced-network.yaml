@@ -1,0 +1,82 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: Schedule
+metadata:
+  name: order-kafka-delay-schedule
+  namespace: default
+spec:
+  schedule: '@every 5m'
+  type: 'NetworkChaos'
+  historyLimit: 2
+  concurrencyPolicy: 'Forbid'
+  networkChaos:
+    action: delay
+    mode: all
+    selector:
+      labelSelectors:
+        app.kubernetes.io/name: order-service
+    direction: to
+    target:
+      selector:
+        labelSelectors:
+          app.kubernetes.io/name: kafka
+      mode: all
+    delay:
+      latency: "500ms"
+      correlation: "100"
+      jitter: "0ms"
+    duration: '1m'
+---
+apiVersion: chaos-mesh.org/v1alpha1
+kind: Schedule
+metadata:
+  name: order-kafka-loss-schedule
+  namespace: default
+spec:
+  schedule: '@every 7m'
+  type: 'NetworkChaos'
+  historyLimit: 2
+  concurrencyPolicy: 'Forbid'
+  networkChaos:
+    action: loss
+    mode: all
+    selector:
+      labelSelectors:
+        app.kubernetes.io/name: order-service
+    direction: to
+    target:
+      selector:
+        labelSelectors:
+          app.kubernetes.io/name: kafka
+      mode: all
+    loss:
+      loss: "50"
+      correlation: "100"
+    duration: '1m'
+---
+apiVersion: chaos-mesh.org/v1alpha1
+kind: Schedule
+metadata:
+  name: order-kafka-bandwidth-schedule
+  namespace: default
+spec:
+  schedule: '@every 10m'
+  type: 'NetworkChaos'
+  historyLimit: 2
+  concurrencyPolicy: 'Forbid'
+  networkChaos:
+    action: bandwidth
+    mode: all
+    selector:
+      labelSelectors:
+        app.kubernetes.io/name: order-service
+    direction: to
+    target:
+      selector:
+        labelSelectors:
+          app.kubernetes.io/name: kafka
+      mode: all
+    bandwidth:
+      rate: '1mbps'
+      limit: 20971520
+      buffer: 10000
+    duration: '1m'
