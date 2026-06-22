@@ -31,6 +31,7 @@ This repository contains the core transactional and event-driven foundation of t
 ```
 .
 ├── PLAN_OVERVIEW.md    # High-level roadmap and architectural goals
+├── argocd/             # GitOps definitions (App of Apps)
 ├── conductor/          # Tracks, specification, and agent workflow plans
 ├── inventory-service/  # Java Quarkus Kafka consumer and metrics server
 ├── order-service/      # Go REST API for handling orders

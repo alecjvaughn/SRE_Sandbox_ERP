@@ -6,12 +6,12 @@
 - [x] Task: Apply Terraform locally to verify ArgoCD installation [5045f8d]
 - [x] Task: Conductor - User Manual Verification 'Initial Terraform Bootstrap' (Protocol in workflow.md) [2251a74]
 
-## Phase: ArgoCD App of Apps Configuration [checkpoint: TBD]
+## Phase: ArgoCD App of Apps Configuration [checkpoint: 5975ee8]
 - [x] Task: Create ArgoCD `AppProject` and root `Application` (App of Apps) manifest [be10b01]
 - [x] Task: Create child application manifests for Confluent Kafka Operator and CRDs [5eb98fe]
 - [x] Task: Create child application manifests for `order-service` and `inventory-service` [d8d0c71]
 - [x] Task: Apply root ArgoCD application and verify cascading deployments [32d5260]
-- [ ] Task: Conductor - User Manual Verification 'ArgoCD App of Apps Configuration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'ArgoCD App of Apps Configuration' (Protocol in workflow.md) [5975ee8]
 
 ## Phase: Confluent CLI Integration & Documentation [checkpoint: TBD]
 - [ ] Task: Document local testing procedures for tearing down and rebuilding with `terraform apply`
