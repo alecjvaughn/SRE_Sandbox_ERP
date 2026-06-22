@@ -13,11 +13,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Chaos Engineering Validation**
-  *Link: [./tracks/chaos_engineering_validation_20260620/](./tracks/chaos_engineering_validation_20260620/)* Status: IN PROGRESS
-
----
-
 - [~] **Track: Migrate to Confluent Kafka**
 *Link: [./tracks/migrate_kafka_20260621/](./tracks/migrate_kafka_20260621/)*
 
