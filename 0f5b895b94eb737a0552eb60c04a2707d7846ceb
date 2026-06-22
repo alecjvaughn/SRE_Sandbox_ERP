@@ -1,0 +1,4 @@
+Task: Delete any lingering PVCs, Services, or ConfigMaps associated with the old Kafka cluster
+Summary: Deleted old bitnami kafka PVCs and removed the helm/kafka-cluster code directory.
+Files: helm/kafka-cluster/values.yaml
+Why: Ensure a clean slate for confluent kafka deployment.
