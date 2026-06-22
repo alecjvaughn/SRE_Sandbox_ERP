@@ -11,14 +11,14 @@
     - [x] Write unit tests for connection copying (bidirectional byte streaming).
     - [x] Implement the proxy tunneling logic to forward bytes from client to downstream broker.
 
-## Phase 2: Dynamic Routing and Failover Logic
+## Phase 2: Dynamic Routing and Failover Logic [checkpoint: a5a85d4]
 - [x] Task: Implement downstream health checking [bfdc716]
     - [x] Write tests for active TCP probing of downstream endpoints.
     - [x] Implement a worker pool to maintain the status of multiple Kafka broker endpoints.
-- [ ] Task: Implement AZ-aware routing and failover
-    - [ ] Write tests for routing logic (prefer healthy, least-latency, or specific AZ).
-    - [ ] Update the proxy to select the best downstream connection upon client connect.
-    - [ ] Implement automatic connection retry/failover if the downstream fails during the handshake.
+- [x] Task: Implement AZ-aware routing and failover [0d1dfd7]
+    - [x] Write tests for routing logic (prefer healthy, least-latency, or specific AZ).
+    - [x] Update the proxy to select the best downstream connection upon client connect.
+    - [x] Implement automatic connection retry/failover if the downstream fails during the handshake.
 
 ## Phase 3: Cost-Centric Observability & Metrics
 - [ ] Task: Instrument proxy with Prometheus metrics
