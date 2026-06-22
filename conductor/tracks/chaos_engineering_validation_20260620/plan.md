@@ -32,10 +32,15 @@
     - [x] Document workaround in `README.md`
 - [x] Task: Conductor - User Manual Verification 'UI Dashboard Validation' d34c7e8
 
-## Phase: Advanced Kafka Network Chaos [checkpoint: TBD]
-- [ ] Task: Re-activate chaos schedulers and define advanced network faults
-    - [ ] Update `NetworkChaos` manifests with `Schedule` CRDs or cron schedules for randomized attacks
-    - [ ] Inject packet loss rules between `order-service` and Kafka
-    - [ ] Inject bandwidth throttling rules between `order-service` and Kafka
-    - [ ] Validate 500ms latency rules
-- [ ] Task: Conductor - User Manual Verification 'Advanced Kafka Network Chaos' (Protocol in workflow.md)
+## Phase: Advanced Kafka Network Chaos [checkpoint: 728b9d0]
+- [x] Task: Re-activate chaos schedulers and define advanced network faults 728b9d0
+    - [x] Update `NetworkChaos` manifests with `Schedule` CRDs or cron schedules for randomized attacks
+    - [x] Inject packet loss rules between `order-service` and Kafka
+    - [x] Inject bandwidth throttling rules between `order-service` and Kafka
+    - [x] Validate 500ms latency rules
+- [x] Task: Conductor - User Manual Verification 'Advanced Kafka Network Chaos' (Protocol in workflow.md) 728b9d0
+
+## Phase: Post-Migration Verification [checkpoint: TBD]
+- [ ] Task: Re-verify system recovery against new Confluent Kafka cluster
+    - [ ] Run test orders to ensure UI and metrics are displaying recovery behavior
+- [ ] Task: Conductor - User Manual Verification 'Post-Migration Verification'
