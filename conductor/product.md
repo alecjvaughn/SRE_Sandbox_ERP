@@ -1,20 +1,19 @@
 # Initial Concept
 
-Active-Active SRE Sandbox with Go Mock ERP, Java Inventory Service, and Confluent Kafka on K8s (using Obsidian Design Doc)
+Cost-Aware Traffic Plane & Egress Optimizer for Kafka
 
-# Product Guide: SRE Sandbox with ERP
+# Product Guide: Cost-Aware Traffic Plane & Egress Optimizer
 
 ## Vision
-The SRE Sandbox with ERP is a lightweight, cost-effective simulation platform that mirrors cloud-native enterprise enterprise resource planning (ERP) architectures. By decoupling transaction processing (Go mock service) from state/inventory mutation (Java mock service) via a Kafka event stream, this project provides a safe, highly observable environment to test infrastructure resiliency, chaos engineering, and automated self-healing mechanisms.
+This project is an advanced cloud-native data plane simulation targeting the optimization of ingress and egress traffic for Confluent Kafka workloads. It pivots away from standard application development to focus entirely on network routing, failover mechanisms, and bandwidth cost efficiency. Built on Microsoft Azure to utilize enterprise-grade networking primitives (VNets, NSGs, Private Links), the project provides a reproducible sandbox to prove how intelligent traffic shaping can maintain 99.9% uptime while actively minimizing cloud networking costs across Availability Zones.
 
 ## Core Features
-1. **Active-Active Go Order Service**: High-throughput REST API that accepts transaction payloads and produces events to Kafka, running with replica anti-affinity across multiple Kubernetes worker nodes.
-2. **Java Inventory Service**: Event consumer subscribing to Kafka, processing stock mutations, and exposing service metrics via Quarkus.
-3. **Kafka Event Fabric**: Confluent-based partitioned topic streaming to handle concurrent microservice communications.
-4. **Chaos Engineering Engine**: Chaos Mesh integrations for scheduled pod evictions, network latency injections, and memory spikes.
-5. **Observability Stack**: Prometheus metrics collection and real-time Grafana dashboards displaying latency, throughput, compute saturation, and self-healing events.
+1. **Custom Go Edge Proxy**: A lightweight Layer 4 TCP proxy built in Go that sits between the internet and the Kafka cluster. It inspects incoming traffic and intelligently routes it to the nearest or cheapest Kafka broker based on real-time AZ health.
+2. **Simulated Hybrid Network Failovers**: Orchestrating critical network failovers during simulated hybrid-cloud link drops. The Go proxy dynamically re-routes Kafka consumer traffic to secondary pathways without dropping TCP connections.
+3. **Network-Targeted Chaos Engineering**: Utilizing Chaos Mesh `NetworkChaos` CRDs to inject packet loss, 500ms latency delays, and bandwidth throttling between the transaction engine and Kafka brokers, simulating severe network degradation.
+4. **Cost-Centric Observability**: Extending Prometheus and Grafana to track not just throughput, but explicit Network I/O (Bytes In/Out), TCP Retransmission rates, and real-time simulated Egress Costs ($) across Availability Zones.
+5. **Azure Networking Primitives**: Leveraging Azure Virtual Networks (VNets), User Defined Routes (UDRs), Network Security Groups (NSGs), and Azure Private Endpoints to create a highly secure, isolated traffic fabric simulating a true Confluent Cloud deployment.
 
 ## Target Audience
-- **SRE & DevOps Engineers**: To test and demo cloud-native resilience practices.
-- **Software Engineers**: To understand decoupled event-driven architectures and API design under stress.
-- **Interviewers / Recruiters**: Serving as an advanced, production-grade systems architecture portfolio piece.
+- **Interviewers / Recruiters (IBM Confluent Cloud Traffic Team)**: Serving as a highly targeted, undeniably relevant senior-level architectural portfolio piece.
+- **SRE & Cloud Network Engineers**: To test complex traffic routing, private link isolation, and cost-optimization practices under simulated stress.

@@ -1,0 +1,8 @@
+{
+  "track_id": "azure_aks_edge_proxy_20260622",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-06-22T16:26:00Z",
+  "updated_at": "2026-06-22T16:26:00Z",
+  "description": "Migrate to Azure AKS and Build Edge Proxy"
+}

@@ -18,3 +18,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] **Track: Define IaC using Terraform and ArgoCD**
 *Link: [./tracks/iac_terraform_argocd_20260621/](./tracks/iac_terraform_argocd_20260621/)*
 Status: COMPLETED
+
+---
+
+- [~] **Track: Migrate to Azure AKS and Build Edge Proxy**
+*Link: [./tracks/azure_aks_edge_proxy_20260622/](./tracks/azure_aks_edge_proxy_20260622/)*
