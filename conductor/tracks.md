@@ -23,5 +23,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Define IaC using Terraform and ArgoCD**
+- [x] **Track: Define IaC using Terraform and ArgoCD**
 *Link: [./tracks/iac_terraform_argocd_20260621/](./tracks/iac_terraform_argocd_20260621/)*
+Status: COMPLETED
