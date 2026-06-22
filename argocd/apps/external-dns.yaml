@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: sre-sandbox
+  source:
+    repoURL: 'https://kubernetes-sigs.github.io/external-dns/'
+    chart: external-dns
+    targetRevision: 1.14.4
+    helm:
+      parameters:
+        - name: provider
+          value: cloudflare
+        - name: env[0].name
+          value: CF_API_TOKEN
+        - name: env[0].valueFrom.secretKeyRef.name
+          value: cloudflare-api-token
+        - name: env[0].valueFrom.secretKeyRef.key
+          value: token
+        - name: policy
+          value: sync # allows external-dns to delete records when ingress is removed
+        - name: domainFilters[0]
+          value: aleclabs.us
+        - name: rbac.create
+          value: "true"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-dns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

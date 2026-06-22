@@ -21,7 +21,8 @@
 - **Local Dev Sandbox**: `Docker Compose` or `Kind (Kubernetes in Docker)` for zero-cost rapid local prototyping.
 - **Cloud Cluster**: Azure Kubernetes Service (AKS) with 3x worker nodes deployed strictly within the Azure free tier / $200 credit limit constraints.
 - **Advanced Networking**: Azure Virtual Networks (VNets), User Defined Routes (UDRs), Network Security Groups (NSGs), and Azure Private Endpoints to simulate Confluent Cloud's isolated tenant data streams.
-- **Load Balancing**: Azure Standard Load Balancer for ingress traffic distribution.
+- **Load Balancing & Ingress**: Azure Standard Load Balancer, `ingress-nginx` for HTTP/HTTPS reverse proxy routing.
+- **DNS Automation**: `external-dns` dynamically managing `Cloudflare` DNS records based on Ingress hostnames.
 - **Configuration Management**: `Helm` for managing Kubernetes manifests, applying soft/hard anti-affinity rules, and defining workload resource constraints.
 
 ## 4. Message Broker (Event-Driven Fabric)
