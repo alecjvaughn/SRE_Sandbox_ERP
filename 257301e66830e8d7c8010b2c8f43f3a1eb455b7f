@@ -1,0 +1,4 @@
+Task: Configure Cloudflare DNS records to point aleclabs.us to the Azure Load Balancer Public IP
+
+Summary: Added external-dns ArgoCD manifest configured for Cloudflare to automatically sync Ingress hostnames with Cloudflare DNS records. User securely provisioned a scoped API token in Kubernetes.
+Files: argocd/apps/external-dns.yaml, conductor/tech-stack.md
