@@ -59,6 +59,43 @@ The local sandbox runs completely via Docker Compose, utilizing Apache Kafka in 
    curl -X POST http://localhost:8080/order -d '{"order_id": "test-1", "item": "Widget", "qty": 5}'
    ```
 
+## 🏗 Infrastructure as Code (IaC) & GitOps
+
+The local Kubernetes environment is managed via a combination of Terraform and ArgoCD. Terraform bootstraps the local `Kind` cluster and installs ArgoCD. ArgoCD then takes over via the "App of Apps" pattern to deploy the Confluent Operator, Kafka cluster, and Microservices.
+
+### Tearing Down and Rebuilding the Environment
+
+To tear down and rebuild the environment from a clean slate, use Terraform from the `terraform/` directory:
+
+1. **Destroy the environment:**
+   ```bash
+   cd terraform
+   terraform destroy -auto-approve
+   ```
+2. **Rebuild the environment:**
+   ```bash
+   terraform apply -auto-approve
+   ```
+   *(Note: Once Terraform finishes, ArgoCD will automatically begin syncing the GitOps definitions from this repository to deploy the workloads).*
+
+### Confluent CLI Integration
+
+To interact with the deployed Kafka KRaft cluster running inside Kubernetes, you can use the Confluent CLI.
+
+1. **Port-forward the Kafka bootstrap server:**
+   ```bash
+   kubectl port-forward svc/kafka-cluster-kafka-bootstrap -n default 9092:9092
+   ```
+
+2. **Check cluster status using Confluent CLI:**
+   ```bash
+   # List topics
+   confluent kafka topic list --url http://localhost:9092
+
+   # Consume messages from the orders topic
+   confluent kafka topic consume orders --from-beginning --url http://localhost:9092
+   ```
+
 ## 🌩 Chaos Engineering Observation
 
 When running the advanced Kafka network chaos experiments (latency, packet loss, and bandwidth throttling), you can observe the network disruption via the **Chaos Mesh Dashboard** (`http://localhost:2333`) or by checking the application logs for timeouts and retries.

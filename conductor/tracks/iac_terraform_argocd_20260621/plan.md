@@ -14,8 +14,8 @@
 - [x] Task: Conductor - User Manual Verification 'ArgoCD App of Apps Configuration' (Protocol in workflow.md) [5975ee8]
 
 ## Phase: Confluent CLI Integration & Documentation [checkpoint: TBD]
-- [ ] Task: Document local testing procedures for tearing down and rebuilding with `terraform apply`
-- [ ] Task: Create documentation/scripts for ad-hoc Confluent CLI usage for monitoring and testing the KRaft cluster
+- [x] Task: Document local testing procedures for tearing down and rebuilding with `terraform apply`
+- [x] Task: Create documentation/scripts for ad-hoc Confluent CLI usage for monitoring and testing the KRaft cluster
 - [ ] Task: Conductor - User Manual Verification 'Confluent CLI Integration & Documentation' (Protocol in workflow.md)
 
 ## Phase: Makefile Automation & Teardown Utilities [checkpoint: TBD]
