@@ -1,11 +1,11 @@
 # Implementation Plan: Migrate to Azure AKS and Build Edge Proxy
 
-## Phase: Initial Azure CLI Setup & Ephemeral Infrastructure
+## Phase: Initial Azure CLI Setup & Ephemeral Infrastructure [checkpoint: 67ae75e]
 - [x] Task: Write Terraform scripts for an AKS cluster and Azure VNet networking (Subnets, NSGs)
 - [x] Task: Create Terraform outputs for Cost Management budgets and billing alerts
 - [x] Task: Write `make` commands for automated environment teardown to enforce ephemeral lifecycle [50e04cd]
 - [x] Task: Run Terraform to provision the Azure environment
-- [ ] Task: Conductor - User Manual Verification 'Initial Azure CLI Setup & Ephemeral Infrastructure' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Initial Azure CLI Setup & Ephemeral Infrastructure' (Protocol in workflow.md)
 
 ## Phase: Ingress & Cloudflare DNS Integration
 - [ ] Task: Deploy an Ingress Controller (e.g., NGINX) to the AKS cluster

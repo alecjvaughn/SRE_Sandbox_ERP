@@ -13,18 +13,15 @@ This repository has evolved from an ERP simulation into an advanced cloud-native
 
 ## 🚀 Current Status
 
-- **Phase 1-4**: Core Microservices & Local Sandbox (Completed).
-- **Phase 5**: Kubernetes Active-Active Infrastructure (Completed).
-- **Phase 6**: Observability Stack (Completed).
-- **Phase 7**: Chaos Engineering & Testing (Completed).
+- **Phase 1-7**: Core Microservices, Local Sandbox, Observability, Chaos (Completed).
 - **Phase 8**: Infrastructure as Code (Azure AKS Provisioning) (Completed).
-- **Phase 9**: Custom Go Edge Proxy & Egress Cost Analysis (In Progress - Core TCP Engine complete).
+- **Phase 9**: Custom Go Edge Proxy & Egress Cost Analysis (Completed).
 
 ## 🛠 Prerequisites
 
-- [Go](https://golang.org/doc/install) (1.22+)
+- [Go](https://golang.org/doc/install) (1.24+)
 - [Java 21+](https://jdk.java.net/) & Maven
-- [Docker](https://docs.docker.com/get-docker/) & Docker Compose
+- [Docker](https://docs.docker.com/get-docker/) & Docker Hub Account
 - [Terraform](https://www.terraform.io/)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
@@ -44,11 +41,11 @@ This repository has evolved from an ERP simulation into an advanced cloud-native
 
 ## 💻 Getting Started
 
-The local sandbox runs completely via a Kubernetes `Kind` cluster, utilizing Apache Kafka in KRaft mode and managed via ArgoCD GitOps.
+The environment is built to be an ephemeral Azure AKS cluster managed via Terraform and ArgoCD GitOps.
 
-1. **Start the local sandbox (builds images, creates cluster, deploys ArgoCD):**
+1. **Deploy the infrastructure:**
    ```bash
-   make bootstrap
+   make azure-apply
    ```
 
 2. **Wait for ArgoCD to sync applications:**
@@ -61,10 +58,10 @@ The local sandbox runs completely via a Kubernetes `Kind` cluster, utilizing Apa
 3. **Verify the services:**
    You can port-forward the services to your local machine for testing:
    ```bash
-   kubectl port-forward svc/order-service -n default 8080:8080 &
+   kubectl port-forward svc/edge-proxy -n default 8080:8080 &
    kubectl port-forward svc/inventory-service -n default 8081:8080 &
    ```
-   - Go Order Service API: `http://localhost:8080/order`
+   - Edge Proxy (routing to Order Service): `http://localhost:8080/order`
    - Inventory Service Health Check: `http://localhost:8081/healthz`
 
 4. **Send a test order:**
@@ -74,20 +71,19 @@ The local sandbox runs completely via a Kubernetes `Kind` cluster, utilizing Apa
 
 ## 🏗 Infrastructure as Code (IaC) & GitOps
 
-The local Kubernetes environment is managed via a combination of Terraform and ArgoCD. Terraform bootstraps the local `Kind` cluster and installs ArgoCD. ArgoCD then takes over via the "App of Apps" pattern to deploy the Confluent Operator, Kafka cluster, and Microservices.
+The Azure Kubernetes environment is managed via a combination of Terraform and ArgoCD. Terraform bootstraps the AKS cluster and installs ArgoCD. ArgoCD then takes over via the "App of Apps" pattern to deploy the Confluent Operator, Kafka cluster, and Microservices.
 
 ### Tearing Down and Rebuilding the Environment
 
-To tear down and rebuild the environment from a clean slate, use Terraform from the `terraform/` directory:
+To tear down and rebuild the environment from a clean slate, use the provided `make` targets:
 
 1. **Destroy the environment:**
    ```bash
-   cd terraform
-   terraform destroy -auto-approve
+   make nuke
    ```
 2. **Rebuild the environment:**
    ```bash
-   terraform apply -auto-approve
+   make azure-apply
    ```
    *(Note: Once Terraform finishes, ArgoCD will automatically begin syncing the GitOps definitions from this repository to deploy the workloads).*
 
