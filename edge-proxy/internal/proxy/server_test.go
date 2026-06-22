@@ -77,10 +77,10 @@ func TestServer_ProxyConnection(t *testing.T) {
 
 	// 2. Start the proxy server pointing to the downstream
 	srv := NewServer("127.0.0.1:0")
-	srv.downstreamAddr = downstream.Addr().String()
+	srv.SetDownstream(downstream.Addr().String())
 
 	go srv.Start()
-	time.Sleep(100 * time.Millisecond)
+	time.Sleep(500 * time.Millisecond)
 	defer srv.Shutdown(context.Background())
 
 	// 3. Connect to proxy and send data
