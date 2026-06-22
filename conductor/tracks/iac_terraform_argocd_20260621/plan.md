@@ -2,7 +2,7 @@
 
 ## Phase: Initial Terraform Bootstrap [checkpoint: TBD]
 - [x] Task: Create initial Terraform directory structure and provider configuration [4225df7]
-- [ ] Task: Write Terraform code to install ArgoCD via Helm into the Minikube cluster
+- [x] Task: Write Terraform code to install ArgoCD via Helm into the Kind cluster [89b82dd]
 - [ ] Task: Apply Terraform locally to verify ArgoCD installation
 - [ ] Task: Conductor - User Manual Verification 'Initial Terraform Bootstrap' (Protocol in workflow.md)
 
