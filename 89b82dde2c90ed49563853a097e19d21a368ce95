@@ -1,0 +1,6 @@
+Task: Write Terraform code to install ArgoCD via Helm into the Kind cluster
+Summary: Wrote main.tf with the helm_release resource to install ArgoCD, and updated the providers.tf context to use kind-kind.
+Files:
+- terraform/main.tf
+- terraform/providers.tf
+Why: To automate the deployment of ArgoCD into the local Kubernetes environment (now Kind).
