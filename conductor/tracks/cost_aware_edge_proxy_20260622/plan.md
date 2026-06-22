@@ -12,9 +12,9 @@
     - [x] Implement the proxy tunneling logic to forward bytes from client to downstream broker.
 
 ## Phase 2: Dynamic Routing and Failover Logic
-- [ ] Task: Implement downstream health checking
-    - [ ] Write tests for active TCP probing of downstream endpoints.
-    - [ ] Implement a worker pool to maintain the status of multiple Kafka broker endpoints.
+- [x] Task: Implement downstream health checking [bfdc716]
+    - [x] Write tests for active TCP probing of downstream endpoints.
+    - [x] Implement a worker pool to maintain the status of multiple Kafka broker endpoints.
 - [ ] Task: Implement AZ-aware routing and failover
     - [ ] Write tests for routing logic (prefer healthy, least-latency, or specific AZ).
     - [ ] Update the proxy to select the best downstream connection upon client connect.
