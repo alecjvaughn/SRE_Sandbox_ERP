@@ -5,17 +5,16 @@
 - [x] Task: Delete any lingering PVCs, Services, or ConfigMaps associated with the old Kafka cluster 0f5b895
 - [x] Task: Conductor - User Manual Verification 'Pre-Migration Cleanup' (Protocol in workflow.md) 0cdaab7
 
-## Phase: Confluent Kafka Deployment
+## Phase: Confluent Kafka Deployment [checkpoint: IaC-Track]
 - [x] Task: Add the Confluent CFK Helm repository and configure it for a 3-node KRaft topology 9800675
 - [x] Task: Write updated CFK CRDs for the new Kafka cluster 86d0546
 - [x] Task: Deploy the CFK Operator and Confluent Kafka cluster to the Minikube environment c9d6829
-- [~] Task: Wait for pods to become healthy and verify cluster formation
-- [ ] Task: Conductor - User Manual Verification 'Confluent Kafka Deployment' (Protocol in workflow.md)
+- [x] Task: Wait for pods to become healthy and verify cluster formation (Completed via IaC Track)
+- [x] Task: Conductor - User Manual Verification 'Confluent Kafka Deployment' (Completed via IaC Track)
 
-## Phase: Application Integration
-- [ ] Task: Identify if the new Kafka bootstrap server URLs differ from the old ones
-- [ ] Task: Update the `values.yaml` or ConfigMaps for `order-service` and `inventory-service` with the new Kafka URLs
-- [ ] Task: Restart the microservices to pick up the new configuration
-- [ ] Task: Run test requests to ensure the Go applications can successfully produce and consume events
-- [ ] Task: Ensure all Confluent Kafka manifests and microservice configuration overrides are synced and deployed via the IaC/ArgoCD GitOps pipeline
-- [ ] Task: Conductor - User Manual Verification 'Application Integration' (Protocol in workflow.md)
+## Phase: Application Integration & IaC Alignment [checkpoint: TBD]
+- [ ] Task: Identify the correct Kafka bootstrap server URLs for the new Confluent cluster
+- [ ] Task: Inject the Kafka URLs as environment variables into `order-service` and `inventory-service` Helm charts (`values.yaml` / `deployment.yaml`)
+- [ ] Task: Commit the changes to trigger an ArgoCD GitOps sync and verify pod rollout
+- [ ] Task: Run test requests to ensure the microservices successfully produce and consume events against the new cluster
+- [ ] Task: Conductor - User Manual Verification 'Application Integration & IaC Alignment' (Protocol in workflow.md)
