@@ -54,6 +54,20 @@ The local sandbox runs completely via Docker Compose, utilizing Apache Kafka in 
    curl -X POST http://localhost:8080/order -d '{"order_id": "test-1", "item": "Widget", "qty": 5}'
    ```
 
+## 🌩 Chaos Engineering Observation
+
+When running the advanced Kafka network chaos experiments (latency, packet loss, and bandwidth throttling), you can observe the network disruption via the Grafana **Explore** tab using the following PromQL queries targeting the `order-service`:
+
+- **Observe Packet Loss:**
+  ```promql
+  rate(container_network_transmit_packets_dropped_total{namespace="default", pod=~"order-service.*"}[1m])
+  ```
+- **Observe Bandwidth Throttling:**
+  ```promql
+  rate(container_network_transmit_bytes_total{namespace="default", pod=~"order-service.*"}[1m])
+  ```
+*(Note: Application latency should be observed via HTTP/Kafka application-level metrics or timeouts in logs, rather than raw container network metrics).*
+
 ## ⚠️ Known Issues
 
 ### Grafana Dashboards "No Data" in Minikube
