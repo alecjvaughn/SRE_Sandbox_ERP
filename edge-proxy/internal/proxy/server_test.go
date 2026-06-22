@@ -5,6 +5,9 @@ import (
 	"net"
 	"testing"
 	"time"
+
+	"github.com/alecjvaughn/sre-sandbox/edge-proxy/internal/metrics"
+	"github.com/prometheus/client_golang/prometheus/testutil"
 )
 
 func TestServer_StartAndStop(t *testing.T) {
@@ -105,5 +108,13 @@ func TestServer_ProxyConnection(t *testing.T) {
 
 	if string(buf[:n]) != string(msg) {
 		t.Errorf("Expected %q, got %q", msg, buf[:n])
+	}
+
+	// 5. Verify metrics incremented
+	time.Sleep(50 * time.Millisecond) // Wait for go-routines to record metrics
+	
+	bytesIn := testutil.ToFloat64(metrics.BytesInTotal.WithLabelValues("default"))
+	if bytesIn < float64(len(msg)) {
+		t.Errorf("Expected BytesInTotal >= %d, got %v", len(msg), bytesIn)
 	}
 }

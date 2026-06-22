@@ -3,11 +3,12 @@ package proxy
 import (
 	"context"
 	"errors"
-	"io"
 	"log"
 	"net"
 	"sync"
 	"time"
+
+	"github.com/alecjvaughn/sre-sandbox/edge-proxy/internal/metrics"
 )
 
 // Server represents the TCP edge proxy server.
@@ -130,17 +131,48 @@ func (s *Server) handleConnection(clientConn net.Conn) {
 	}
 	defer downstreamConn.Close()
 
+	// Get the AZ of the chosen downstream for metrics tagging
+	var az string
+	s.router.mu.RLock()
+	if ep, exists := s.router.endpoints[downstreamConn.RemoteAddr().String()]; exists {
+		az = ep.AZ
+	}
+	s.router.mu.RUnlock()
+
 	var wg sync.WaitGroup
 	wg.Add(2)
 
+	metrics.ActiveConnections.Inc()
+	defer metrics.ActiveConnections.Dec()
+
 	go func() {
 		defer wg.Done()
-		io.Copy(downstreamConn, clientConn)
+		buf := make([]byte, 32*1024)
+		for {
+			n, err := clientConn.Read(buf)
+			if n > 0 {
+				metrics.BytesInTotal.WithLabelValues(az).Add(float64(n))
+				downstreamConn.Write(buf[:n])
+			}
+			if err != nil {
+				break
+			}
+		}
 	}()
 
 	go func() {
 		defer wg.Done()
-		io.Copy(clientConn, downstreamConn)
+		buf := make([]byte, 32*1024)
+		for {
+			n, err := downstreamConn.Read(buf)
+			if n > 0 {
+				metrics.BytesOutTotal.WithLabelValues(az).Add(float64(n))
+				clientConn.Write(buf[:n])
+			}
+			if err != nil {
+				break
+			}
+		}
 	}()
 
 	wg.Wait()
