@@ -1,0 +1,7 @@
+Task: Create child application manifests for Confluent Kafka Operator and CRDs
+Summary: Created the child ArgoCD applications for deploying the Confluent for Kubernetes (CFK) Operator via Helm, and the actual Kafka KRaft cluster via Git.
+Files:
+- argocd/apps/confluent-operator.yaml
+- argocd/apps/kafka-cluster.yaml
+- kubernetes/kafka/kafka-cluster.yaml
+Why: To automate the deployment of the event bus (Kafka) infrastructure via GitOps using ArgoCD.
