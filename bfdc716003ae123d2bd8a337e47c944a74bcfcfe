@@ -1,0 +1,4 @@
+Task: Implement downstream health checking
+
+Summary: Implemented HealthChecker with active TCP probing and a background worker pool to maintain health status of endpoints.
+Files: edge-proxy/internal/proxy/health.go, edge-proxy/internal/proxy/health_test.go
