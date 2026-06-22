@@ -11,6 +11,7 @@ spec:
     - "https://github.com/alecjvaughn/SRE_Sandbox_ERP.git"
     - "https://packages.confluent.io/helm"
     - "https://charts.chaos-mesh.org"
+    - "https://prometheus-community.github.io/helm-charts"
   destinations:
     - namespace: "*"
       server: https://kubernetes.default.svc

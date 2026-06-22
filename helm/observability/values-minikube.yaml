@@ -1,14 +1,15 @@
 # Minikube-specific Observability Overrides
 
-kubelet:
-  serviceMonitor:
-    insecureSkipVerify: true # Minikube uses self-signed certs for kubelet
-    cAdvisorMetricRelabelings:
-      # Inject missing 'container' and 'image' labels using the pod name
-      # to satisfy the strict kube-prometheus-stack dashboard queries.
-      - sourceLabels: [pod]
-        targetLabel: container
-        action: replace
-      - sourceLabels: [pod]
-        targetLabel: image
-        action: replace
+kube-prometheus-stack:
+  kubelet:
+    serviceMonitor:
+      insecureSkipVerify: true # Minikube uses self-signed certs for kubelet
+      cAdvisorMetricRelabelings:
+        # Inject missing 'container' and 'image' labels using the pod name
+        # to satisfy the strict kube-prometheus-stack dashboard queries.
+        - sourceLabels: [pod]
+          targetLabel: container
+          action: replace
+        - sourceLabels: [pod]
+          targetLabel: image
+          action: replace
