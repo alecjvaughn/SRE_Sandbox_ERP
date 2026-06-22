@@ -1,0 +1,4 @@
+Task: Configure Grafana Egress Cost Dashboard
+
+Summary: Created a Grafana Dashboard ConfigMap to visualize Edge Proxy Active Connections, Network I/O by AZ, and Simulated Egress Costs.
+Files: helm/observability/templates/edge-proxy-cost-dashboard.yaml
