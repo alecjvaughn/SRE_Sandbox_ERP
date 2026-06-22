@@ -1,0 +1,4 @@
+Task: Containerize and deploy the Edge Proxy
+
+Summary: Wrote Dockerfile for edge-proxy. Updated Makefile to build docker image. Created edge-proxy helm chart using a DaemonSet to run the proxy on all nodes. Added edge-proxy Application to ArgoCD.
+Files: edge-proxy/Dockerfile, Makefile, helm/edge-proxy/*, argocd/apps/edge-proxy.yaml
