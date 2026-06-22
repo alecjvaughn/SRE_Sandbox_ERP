@@ -1,0 +1,5 @@
+Task: Create initial Terraform directory structure and provider configuration
+Summary: Created the initial Terraform directory and configured Kubernetes and Helm providers to target the local Minikube cluster.
+Files:
+- terraform/providers.tf
+Why: To establish the foundational IaC structure required to deploy ArgoCD and subsequent cluster workloads.
