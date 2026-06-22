@@ -16,12 +16,15 @@ This repository contains the core transactional and event-driven foundation of t
 - **Phase 5**: Kubernetes Active-Active Infrastructure (Completed).
 - **Phase 6**: Observability Stack (Completed).
 - **Phase 7**: Chaos Engineering & Testing (Completed).
+- **Phase 8**: Infrastructure as Code & GitOps (In Progress).
 
 ## 🛠 Prerequisites
 
 - [Go](https://golang.org/doc/install) (1.22+)
 - [Java 21+](https://jdk.java.net/) & Maven
 - [Docker](https://docs.docker.com/get-docker/) & Docker Compose
+- [Terraform](https://www.terraform.io/)
+- [Kind](https://kind.sigs.k8s.io/)
 
 ## 📂 Project Structure
 
@@ -31,6 +34,7 @@ This repository contains the core transactional and event-driven foundation of t
 ├── conductor/          # Tracks, specification, and agent workflow plans
 ├── inventory-service/  # Java Quarkus Kafka consumer and metrics server
 ├── order-service/      # Go REST API for handling orders
+├── terraform/          # Infrastructure as Code (Terraform configs)
 └── README.md           # This evolving project documentation
 ```
 
