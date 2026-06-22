@@ -66,6 +66,14 @@ When running the advanced Kafka network chaos experiments (latency, packet loss,
   ```promql
   rate(container_network_transmit_bytes_total{namespace="default", pod=~"order-service.*"}[1m])
   ```
+- **Observe CPU Stress:**
+  ```promql
+  rate(container_cpu_usage_seconds_total{namespace="default", pod=~"order-service.*|inventory-service.*"}[1m])
+  ```
+- **Observe Memory Stress:**
+  ```promql
+  container_memory_working_set_bytes{namespace="default", pod=~"order-service.*|inventory-service.*"}
+  ```
 *(Note: Application latency should be observed via HTTP/Kafka application-level metrics or timeouts in logs, rather than raw container network metrics).*
 
 ## ⚠️ Known Issues
