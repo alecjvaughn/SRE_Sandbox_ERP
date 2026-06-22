@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: edge-proxy
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: sre-sandbox
+  source:
+    repoURL: "https://github.com/alecjvaughn/SRE_Sandbox_ERP.git"
+    targetRevision: HEAD
+    path: helm/edge-proxy
+    helm:
+      parameters:
+        - name: metrics.enabled
+          value: "true"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
